@@ -58,6 +58,7 @@ define( 'LOGGED_IN_SALT',   'O7)fW*Bb`O+h,*|{IF^S+$Dyv rP+^!SpAOb#$E9%SOlk}:)u/.
 define( 'NONCE_SALT',       '7HSB]IxfXIG%:{TQ&K~LdtPUs3Lhb(gM#Vj^,RBIFFtG:(j$_E.[#G5h&%eL|L$/' );
 
 /**#@-*/
+define('FS_METHOD', 'direct');
 
 /**
  * Tiền tố cho bảng database.

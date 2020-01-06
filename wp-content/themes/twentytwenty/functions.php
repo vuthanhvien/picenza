@@ -257,6 +257,7 @@ function twentytwenty_menus() {
 		'mobile'   => __( 'Mobile Menu', 'twentytwenty' ),
 		'footer'   => __( 'Footer Menu', 'twentytwenty' ),
 		'social'   => __( 'Social Menu', 'twentytwenty' ),
+		'top'   => __( 'Top Menu', 'twentytwenty' ),
 	);
 
 	register_nav_menus( $locations );
@@ -354,6 +355,20 @@ function twentytwenty_sidebar_registration() {
 		'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
 		'after_widget'  => '</div></div>',
 	);
+
+	// Footer #top.
+
+	register_sidebar(
+		array_merge(
+			$shared_args,
+			array(
+				'name'        => __( 'Footer #Top', 'twentytwenty' ),
+				'id'          => 'sidebar-top',
+				'description' => __( 'Widgets in this area will be displayed in the first column in the footer.', 'twentytwenty' ),
+			)
+		)
+	);
+
 
 	// Footer #1.
 	register_sidebar(

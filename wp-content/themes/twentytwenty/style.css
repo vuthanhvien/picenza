@@ -3526,14 +3526,14 @@ figure.wp-block-table.is-style-stripes {
 .entry-content ul,
 .entry-content dl,
 .entry-content dt {
-	font-family: NonBreakingSpaceOverride, "Hoefler Text", Garamond, "Times New Roman", serif;
+	/* font-family: NonBreakingSpaceOverride, "Hoefler Text", Garamond, "Times New Roman", serif; */
 	letter-spacing: normal;
 }
 
 .entry-content cite,
 .entry-content figcaption,
 .entry-content .wp-caption-text {
-	font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+	/* font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif; */
 }
 
 @supports ( font-variation-settings: normal ) {

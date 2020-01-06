@@ -19,9 +19,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" >
 
 		<link rel="profile" href="https://gmpg.org/xfn/11">
-
+		<link rel="stylesheet" type="text/css" href="/wp-content/themes/twentytwenty/custom.css">
 		<?php wp_head(); ?>
-
+ 
 	</head>
 
 	<body <?php body_class(); ?>>
@@ -31,7 +31,21 @@
 		?>
 
 		<header id="site-header" class="header-footer-group" role="banner">
-
+			<?php if ( has_nav_menu( 'top' ) ) { ?>
+				<div class="top-menu ">
+					<div class="section-inner">
+					<?php
+						wp_nav_menu(
+							array(
+								'container'  => '',
+								'items_wrap' => '%3$s',
+								'theme_location' => 'top',
+							)
+						);
+					?>
+				</div>
+				</div>
+			<?php } ?>
 			<div class="header-inner section-inner">
 
 				<div class="header-titles-wrapper">
@@ -63,7 +77,7 @@
 							twentytwenty_site_logo();
 
 							// Site description.
-							twentytwenty_site_description();
+							// twentytwenty_site_description();
 						?>
 
 					</div><!-- .header-titles -->
