@@ -20,6 +20,7 @@
 
 		<link rel="profile" href="https://gmpg.org/xfn/11">
 		<link rel="stylesheet" type="text/css" href="/wp-content/themes/twentytwenty/custom.css">
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&display=swap&subset=vietnamese" rel="stylesheet">
 		<?php wp_head(); ?>
  
 	</head>
