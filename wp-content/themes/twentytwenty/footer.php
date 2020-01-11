@@ -22,5 +22,58 @@
 				</div><!-- .section-inner -->
 			</footer><!-- #site-footer -->
 		<?php wp_footer(); ?>
+
+		<style>
+			.custom-product-slider {
+				position: relative;
+				margin-left: 0!important;
+			}
+
+			.custom-product-slider  .display-posts-listing{
+				margin: 0!important;
+			}
+			.custom-product-slider .next-right{
+				right: 0px;
+
+			}
+			.custom-product-slider .next-left{
+				left: 0px;
+
+			}
+			.custom-product-slider .next-right,
+			.custom-product-slider .next-left{
+				position: absolute;
+				height: 50px;
+				width: 30px;
+				background: #0003;
+				top: calc(50% - 25px);
+				color: white;
+				padding: 10px 5px;
+				cursor: pointer;
+			}
+			.custom-product-slider .next-right:hover,
+			.custom-product-slider .next-left:hover{
+				background: #0004;
+			}
+			</style>
+	 
+		<script>
+			jQuery('.custom-product-slider ').append('<div class="next-right"><i class="fa fa-arrow-right" /></div>');
+			jQuery('.custom-product-slider ').prepend('<div class="next-left"><i class="fa fa-arrow-left" /></div>');
+			var position = 0;
+			jQuery('.next-right').on('click', function(){
+				var width = jQuery('.listing-item').width;
+				var parent = jQuery(this).parent().children();
+				parent.scrollLeft(position + 200);
+				position = position + 200;
+			})
+
+			jQuery('.next-left').on('click', function(){
+				var width = jQuery('.listing-item').width;
+				var parent = jQuery(this).parent().children();
+				parent.scrollLeft(position - 200);
+				position = position - 200;
+			})
+		</script>
 	</body>
 </html>

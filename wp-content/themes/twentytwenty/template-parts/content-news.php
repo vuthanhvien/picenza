@@ -13,7 +13,7 @@
 
 ?>
 
-<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+<article class="news-page" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 	<?php
 
  
@@ -75,7 +75,7 @@
 				<a href="<?php the_permalink() ?>"> 
 					<?php the_post_thumbnail() ?>
 					</a>
-					<div class="new-content">
+					<div class="news-content">
 					<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 					<p>By <span class="author"><?php the_author() ?> </span>| <span class="date"> <?php the_time( get_option( 'date_format' ) ); ?> </span>  </p>
 					<p><?php the_excerpt(); ?> </p>
