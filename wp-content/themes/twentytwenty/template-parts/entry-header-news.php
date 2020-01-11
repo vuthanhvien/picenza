@@ -13,9 +13,14 @@ if ( is_singular() ) {
 	$entry_header_classes .= ' header-footer-group';
 }
 
+$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
+
+$thumbnail = $thumbnail[0];
 ?>
 
-<header class="entry-header has-text-align-center<?php echo esc_attr( $entry_header_classes ); ?>">
+
+
+<header style="background-image: url('<? echo $thumbnail ?>')" class="entry-header has-text-align-center<?php echo esc_attr( $entry_header_classes ); ?>">
 
 	<div class="entry-header-inner section-inner medium">
 
