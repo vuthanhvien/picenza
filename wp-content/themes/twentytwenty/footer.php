@@ -74,6 +74,30 @@
 				parent.scrollLeft(position - 200);
 				position = position - 200;
 			})
+			jQuery('.form-store .city').change(function(){
+				var id = jQuery(this).val();
+				jQuery('.select-ditrict').hide();
+				jQuery('#selectaddress-'+id).show();
+			})
+			jQuery('.form-store button').click(function(){
+				var city = jQuery('.form-store .city').val();
+				var ditrict = jQuery('#selectaddress-'+city).val();
+
+				var total = 0;
+
+				jQuery('.store-detail').map(function(){
+					var store = jQuery(this);
+					var key = store.data('key');
+					if(key.indexOf(city) > -1 && key.indexOf(ditrict) > -1 ){
+						store.show();
+						total = total+ 1;
+					}else{
+						store.hide();
+					}
+				})
+
+				jQuery('#total-store').html('CÓ '+total+' CỬA HÀNG')
+			})
 		</script>
 	</body>
 </html>

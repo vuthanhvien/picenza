@@ -67,9 +67,12 @@ a {
     padding: 0 10px;
     font-weight: 600;
 }
-#site-header .primary-menu .icon {display:none}
 
-#site-header .sub-menu{
+#site-header .primary-menu .icon {
+    display: none
+}
+
+#site-header .sub-menu {
     background: #f4f4f4;
 }
 
@@ -83,6 +86,7 @@ a {
 #site-header .sub-menu li {
     padding: 15px 5px;
 }
+
 #site-header .primary-menu li.current-menu-item a {
     padding-bottom: 5px;
 }
@@ -689,8 +693,8 @@ a {
 }
 
 .flexslider .slides img {
-        object-fit: cover;
-        height: 600px !important;
+    object-fit: cover;
+    height: 600px !important;
 }
 
 @media only screen and (max-width: 600px) {
@@ -726,6 +730,7 @@ a {
     position: relative;
 
 }
+
 .title-section:after,
 .news-relative h4:after {
     content: '';
@@ -757,13 +762,88 @@ a {
     background: #f4f4f4;
 }
 
-.store-list{
+.store-list {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.store-list .store-detail{
+.store-list .store-detail {
     display: inline-block;
     width: 49%;
     padding: 15px;
+}
+
+.store-detail .store-content {
+    padding: 20px;
+    width: 80%;
+    margin-left: 20%;
+    background: white;
+    margin-top: -25px;
+    position: relative;
+    z-index: 1;
+}
+
+.store-detail img {
+    background-color: #ccc;
+    height: 250px;
+    width: 100%;
+    z-index: 0;
+    object-fit: cover;
+    position: relative;
+}
+
+.store-detail .store-content h3 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.store-detail .store-content p {
+    font-size: 14px;
+    margin: 0;
+    color: #555;
+}
+
+.store-detail .store-content a {
+    font-size: 14px;
+    float: right;
+    top: 0;
+}
+
+.form-store .hide {
+    display: none;
+
+}
+
+.banner {
+    background-image: url('/wp-content/uploads/2020/01/Screen-Shot-2020-01-11-at-21.24.38.png');
+    background-size: cover;
+    padding: 200px 0 220px 0;
+    text-align: center;
+}
+
+.form-store {
+    max-width: 1200px;
+    background: white;
+    margin: -65px auto 65px auto;
+    padding: 40px;
+}
+
+.form-store>div {
+    display: inline-block;
+    padding: 0 15px;
+}
+
+.form-store>div:nth-child(1),
+.form-store>div:nth-child(2) {
+    width: calc(50% - 110px);
+}
+
+.form-store select {
+    border: 1px solid #ccc;
+    height: 50px;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 0;
+    text-indent: 30px;
+
 }

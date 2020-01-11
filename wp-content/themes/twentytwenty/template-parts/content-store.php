@@ -23,55 +23,9 @@
         </a>
     </div>
     <style>
-        .banner{
-            background-image: url('/wp-content/uploads/2020/01/Screen-Shot-2020-01-11-at-21.24.38.png');
-            background-size: cover;
-            padding: 200px 0 220px 0;
-            text-align: center;
-        }
-        .form-store{
-            max-width: 1200px;
-            background: white;
-            margin: -65px auto 65px auto;
-            padding: 40px;
-        }
-        .form-store >div{
-            display: inline-block;
-            padding: 0 15px;
-        }
-        .form-store >div:nth-child(1),
-        .form-store >div:nth-child(2){
-            width: 40%;
-        }
-        .form-store select{
-            border: 1px solid #ccc;
-            height: 50px;
-            padding: 10px 20px;
-            width: 100%;
-            border-radius: 0;
-            text-indent: 30px;
-
-        }
+      
     </style>
 
-    <div class="form-store">
-        <div>
-            <select>
-                <option value="">Chọn tỉnh / Thành phố</option>
-                <option value="HN">Hà Nội </option>
-                <option value="HCM">Hồ Chí Minh</option>
-            </select>
-        </div>
-        <div>
-            <select>
-                <option value="">Quận / Huyện</option>
-            </select>
-        </div>
-        <div>
-            <button class="button">Tìm cửa hàng</button>
-        </div>
-    </div>
-	  
 
     <?php
         $query = new WP_Query( 
@@ -83,24 +37,79 @@
             )
 		);
         if ($query->have_posts()) {
-			echo '<div class="store-list">';
+            
+            $addresses = [];
+            while ($query->have_posts()) { 
+                $query->the_post(); 
+                $postId = get_the_ID();
+                $code = get_post_meta($postId, 'address-code', true);
+                $code = explode("-",$code);
+                if(!$addresses[$code[0]]){
+                    $addresses[$code[0]] = [];
+                }
+                
+                array_push($addresses[$code[0]], $code[1]);
+                
+            }
+            echo '
+                <div class="form-store">
+                <div>
+                    <select class="city">
+                        <option value="">Chọn tỉnh / Thành phố</option> ';
+                        foreach($addresses as $add => $addMore){
+                            $key = preg_replace('/\s+/', '', $add);
+                            echo ' <option value="'.$key.'">'.$add.'</option>';
+                        }
+                       
+            echo    '</select>
+                </div>
+                <div>
+                <select class="select-ditrict" id="selectaddress-" disabled>
+                <option value="">Quận / Huyện</option>
+                </select>
+                ';
+                foreach($addresses as $add => $addMore ){
+                    $key = preg_replace('/\s+/', '', $add);
+                    echo '  <select class="hide select-ditrict" id="selectaddress-'.$key.'">';
+                    echo '<option value="">Quận / Huyện</option> ';
+                    foreach($addMore as $more ){
+                        $keyMore = preg_replace('/\s+/', '', $more);
+                        echo ' <option value="'.$keyMore.'">'.$more.'</option>';
+                    }
+                    echo '  </select>';
+                
+                }
+                echo '</div>
+                <div>
+                    <button class="button">Tìm cửa hàng</button>
+                </div>
+            </div>
+            
+
+            <h2 class="title-section" id="total-store">Có '.$query->found_posts.' cửa hàng </h2>
+            <div class="store-list">';
 
                while ($query->have_posts()) { 
-               $query->the_post(); 
-               
+                $query->the_post(); 
+                $postId = get_the_ID();
+                $address = get_post_meta($postId, 'address', true);
+                $location = get_post_meta($postId, 'location', true);
+                $code = get_post_meta($postId, 'address-code', true);
+
+                $key = preg_replace('/\s+/', '', $code);
 			   ?>
 
-				<div class="store-detail" id="news-<?php $postId; ?>">
+				<div data-key="<?php echo $key ?>" class="store-detail" id="news-<?php $postId; ?>">
 				<a href="<?php the_permalink() ?>"> 
 					<?php the_post_thumbnail() ?>
 					</a>
 					<div class="store-content">
                         <div>
-                    <?php the_title('<h3 class="entry-title">', '</h3>' ) ;?>
-                    <p> <?php get_post_meta($postId, '', true) ?>321321321321</p>
-                    </div>
+                            <?php the_title('<h3 class="entry-title">', '</h3>' ) ;?>
+                            <p> <?php echo $address; ?> <a target="_blank" href="<?php echo $location ?>"> Xem bản đồ</i></a></p>
+                        </div>
+					    
                     <div>
-					<a target="_blank" href="<?php get_post_meta(get_the_ID(),'location', true) ?>"> Xem bản đồ</i></a>
 				</div>
 				</div>
 					
@@ -109,7 +118,7 @@
 			}
             wp_reset_postdata();
 			
-			echo '</div>';
+			echo '</div><br><br><br>';
 		
 		}
 
