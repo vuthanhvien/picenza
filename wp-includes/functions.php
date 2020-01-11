@@ -7478,3 +7478,4 @@ function products_post_type_cate()
 
 add_action('init', 'products_post_type_cate');
 add_action( 'init', 'products_post_type', 0 );
+ 
