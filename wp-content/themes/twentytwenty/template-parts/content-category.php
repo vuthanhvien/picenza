@@ -62,7 +62,7 @@
 					</a>
 					<div class="new-content">
 					<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-					<p>By <?php the_author() ?> | <span> <?php the_time( get_option( 'date_format' ) ); ?> </span>  </p>
+					<p>By <span class="author"><?php the_author() ?> </span>| <span class="date"> <?php the_time( get_option( 'date_format' ) ); ?> </span>  </p>
 					<p><?php the_excerpt(); ?> </p>
 					<a href="<?php get_permalink() ?>"> Read more <i class="fa fa-arrow-right"></i></a>
 				</div>

@@ -228,8 +228,10 @@ a {
     height: 100%;
     opacity: 1;
     background-color: transparent;
-    text-align: center;
-    padding-top: calc(50% - 140px);
+    text-align: center;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .metaslider li .caption-wrap p {
@@ -549,7 +551,7 @@ a {
 
 #customers {
     max-width: 1200px;
-
+    margin: 0 auto;
 }
 
 #customers h2 {
@@ -563,6 +565,7 @@ a {
 
 #customers .wp-block-gallery {
     max-width: 1200px;
+    margin: 0;  
 }
 
 #customers .wp-block-gallery li {
@@ -576,13 +579,37 @@ a {
 .news-list {
     max-width: 1200px;
     margin: 0 auto;
+    vertical-align: text-top;
 }
 
 .news-list .news-detail {
     width: 33%;
-    display: inline-block;
+    display: inline-grid;
+    /* background: white; */
 }
 
+.news-list .news-detail p,
+.news-list .news-detail a
+{
+    font-size: 14px;
+    color: #555;
+}
+.news-list .news-detail a:hover{
+    border-bottom: 1px solid #bf1017;
+}
+.news-list .news-detail h2 a{
+    font-size: 24px;
+    font-weight: 300;
+}
+.news-list .news-detail .author{
+    color: #bf1017;
+}
+.news-list .news-detail img{
+    width: calc( 100% - 40px);
+    height: 350px;
+    object-fit: cover;
+
+}
 
 .product-list {
     max-width: 1200px;
@@ -598,8 +625,8 @@ a {
     font-size: 16px;
 }
 .product-list .product-detail img{
-    height: 150px;
-    width: 100%;
+    height: 350px;
+    width: calc( 100% - 40px);
     object-fit: cover;
 }
 
@@ -622,3 +649,29 @@ a {
     opacity: 1;
 
 }
+
+@media only screen and (max-width: 600px) {
+    .news-list .news-detail {
+        width: 100%!important;
+        display: inline-block;
+    }
+    
+  }
+
+  #customers .blocks-gallery-grid{
+      margin: 0;
+      padding: 50px 0;
+  }
+
+  .news-relative{
+      padding: 50px 0;
+      background: #f4f4f4;
+  }
+  .news-relative h4{
+      font-size: 48px;
+      font-weight: 300;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+
+  }

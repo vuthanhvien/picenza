@@ -48,7 +48,7 @@
 			)
 		);
 
-		edit_post_link();
+		// edit_post_link();
 
 		// Single bottom post meta.
 		twentytwenty_the_post_meta( get_the_ID(), 'single-bottom' );
@@ -63,21 +63,21 @@
 	</div><!-- .section-inner -->
 	<div class="news-relative">
 	<h4>Bài viết liên quan</h4>
- <div class="news-list"> 
+			<div class="news-list"> 
 
-	<?php
+				<?php
 
-$related = get_posts( array( 'category__in' => wp_get_post_categories($post->ID), 'numberposts' => 5, 'post__not_in' => array($post->ID) ) );
-if( $related ) foreach( $related as $post ) {
-setup_postdata($post); ?>
+				$related = get_posts( array( 'category__in' => wp_get_post_categories($post->ID), 'numberposts' => 5, 'post__not_in' => array($post->ID) ) );
+				if( $related ) foreach( $related as $post ) {
+				setup_postdata($post); ?>
 
- <div class="news-detail" id="news-relative-<?php the_ID(); ?>">
+				<div class="news-detail" id="news-relative-<?php the_ID(); ?>">
 				<a href="<?php the_permalink() ?>"> 
 					<?php the_post_thumbnail() ?>
 					</a>
 					<div class="new-content">
 					<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-					<p>By <?php the_author() ?> | <span> <?php the_time( get_option( 'date_format' ) ); ?> </span>  </p>
+					<p>By <span class="author"><?php the_author() ?> </span>| <span class="date"> <?php the_time( get_option( 'date_format' ) ); ?> </span>  </p>
 					<p><?php the_excerpt(); ?> </p>
 					<a href="<?php get_permalink() ?>"> Read more <i class="fa fa-arrow-right"></i></a>
 				</div>
