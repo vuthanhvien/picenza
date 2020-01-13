@@ -500,7 +500,7 @@ function be_display_posts_shortcode( $atts ) {
 		if ( $image_size && has_post_thumbnail() && $include_link ) {
 			$image = '<div class="image" >' . get_the_post_thumbnail( get_the_ID(), $image_size ) . '</div> 
 			
-			<a class="button" href="#" data-toggle="modal" data-target="#product-'.the_ID().'"> Xem chi tiết <i class="fa fa-search"></i></a>
+			<a class="button" href="#" data-toggle="modal" data-target="#product-'.get_the_ID().'"> Xem chi tiết <i class="fa fa-search"></i></a>
 			
 			';
 
@@ -622,7 +622,60 @@ function be_display_posts_shortcode( $atts ) {
 		 * @param string $category_display_text
 		 */
 		$inner .= apply_filters( 'display_posts_shortcode_output', $output, $original_atts, $image, $title, $date, $excerpt, $inner_wrapper, $content, $class, $author, $category_display_text );
-		// $inner .= '12321321';
+		$postId = $post->ID;
+		$price = get_post_meta($postId, 'price', true);
+		$code = get_post_meta($postId, 'code', true);
+		$status = get_post_meta($postId, 'status', true);
+		$title =  get_the_title();
+		$thumnail= get_the_post_thumbnail();
+
+		preg_match_all('#<img(.+?)src=(.+?)\/>#', get_the_content(), $matches);
+		$images = $matches[0];
+
+		
+		$modal = '<div class="modal fade" id="product-'.$postId.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				 <div class="product-popup">
+					<div class="image">
+					'.$thumnail.' <div class="image-slide"> '.$thumnail;
+								foreach ($images as $img) {
+									$modal .= '<div class="image-slider-item">'.$img.'</div>';
+								}
+								
+								$modal .='
+							</div>
+					</div>
+					<div class="info">
+						<h2>'.$title.'</h2>
+						<p>Mã sản phẩm: '.$code.' </p>
+						<p>Tình trạng: '.$status.'</p>
+						<p class="product-content">'.$content.' </p>
+						<div class="product-footer">
+							<p>'.$price.'</p>
+							<div class="shipping" >
+								<img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.33.png" />
+								<p>Giao hàng tận nơi <br> Miễn phí lắp đặt</p>
+							</div>
+						</div>
+						<hr />
+
+						<div class="button-action">
+							<div class="button-call">
+								<img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.39.png" />
+								<p>0939 832 242</p>
+								<p class="mute">Tư vấn - Hỗ trợ đặt hàng</p>
+							</div>
+							<div class="button bg-red">Đặt mua</div>
+							<input placeholder="Để lại số điện thoại nhận tư vấn" />
+							<div class="button">Đăng ký tư vấn</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>';
+		$inner .= $modal;
 
 	endwhile;
 	wp_reset_postdata();

@@ -62,6 +62,9 @@
 			   $price = get_post_meta($postId, 'price', true);
 			   $code = get_post_meta($postId, 'code', true);
 			   $status = get_post_meta($postId, 'status', true);
+			   $output = preg_match_all('#<img(.+?)src=(.+?)\/>#', get_the_content(), $matches);
+			   $images = $matches[0];
+
 			   ?>
 				<div class="product-detail" id="news-<?php the_ID(); ?>">
 					<?php the_post_thumbnail() ?>
@@ -80,7 +83,12 @@
 							 <div class="image">
 							 	<?php the_post_thumbnail() ?>
 									<div class="image-slide">
-
+							 	<?php the_post_thumbnail() ?>
+									<?php 
+									foreach ($images as $img) {
+										echo '<div class="image-slider-item">'.$img.'</div>';
+									}
+									 ?>
 									</div>
 							 </div>
 							 <div class="info">
@@ -111,7 +119,7 @@
 							 </div>
 						</div>
 					</div>
-					</div>
+				</div>
 
                 <?php
 			}
