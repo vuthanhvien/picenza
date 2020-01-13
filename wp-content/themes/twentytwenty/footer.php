@@ -33,11 +33,11 @@
 				margin: 0!important;
 			}
 			.custom-product-slider .next-right{
-				right: 0px;
+				right: 15px;
 
 			}
 			.custom-product-slider .next-left{
-				left: 0px;
+				left: 15px;
 
 			}
 			.custom-product-slider .next-right,
@@ -46,10 +46,11 @@
 				height: 50px;
 				width: 30px;
 				background: #0003;
-				top: calc(50% - 25px);
+				top: calc(50% - 55px);
 				color: white;
 				padding: 10px 5px;
 				cursor: pointer;
+				z-index: 1;
 			}
 			.custom-product-slider .next-right:hover,
 			.custom-product-slider .next-left:hover{
@@ -61,21 +62,21 @@
 
 	 
 		<script>
-			jQuery('.custom-product-slider ').append('<div class="next-right"><i class="fa fa-arrow-right" /></div>');
-			jQuery('.custom-product-slider ').prepend('<div class="next-left"><i class="fa fa-arrow-left" /></div>');
+			jQuery('.custom-product-slider ').append('<div class="next-right"><i class="fa fa-chevron-right" /></div>');
+			jQuery('.custom-product-slider ').prepend('<div class="next-left"><i class="fa fa-chevron-left" /></div>');
 			var position = 0;
 			jQuery('.next-right').on('click', function(){
 				var width = jQuery('.listing-item').width;
 				var parent = jQuery(this).parent().children();
-				parent.scrollLeft(position + 200);
-				position = position + 200;
+				parent.scrollLeft(position + 270);
+				position = position + 270;
 			})
 
 			jQuery('.next-left').on('click', function(){
 				var width = jQuery('.listing-item').width;
 				var parent = jQuery(this).parent().children();
-				parent.scrollLeft(position - 200);
-				position = position - 200;
+				parent.scrollLeft(position - 270);
+				position = position - 270;
 			})
 			jQuery('.form-store .city').change(function(){
 				var id = jQuery(this).val();

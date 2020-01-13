@@ -108,7 +108,7 @@ function be_display_posts_shortcode( $atts ) {
 			'time'                  => '',
 			'title'                 => '',
 			'wrapper'               => 'ul',
-			'wrapper_class'         => 'display-posts-listing',
+			'wrapper_class'         => 'display-posts-listing   product-list',
 			'wrapper_id'            => false,
 		),
 		$atts,
@@ -492,19 +492,17 @@ function be_display_posts_shortcode( $atts ) {
 		$excerpt = '';
 		$content = '';
 
-		if ( $include_title && $include_link ) {
-			/** This filter is documented in wp-includes/link-template.php */
-			$title = '<a class="title" href="' . apply_filters( 'the_permalink', get_permalink() ) . '">' . get_the_title() . '</a>';
+		$price = get_post_meta($post->ID, 'price', true);
 
-		} elseif ( $include_title ) {
-			$title = '<span class="title">' . get_the_title() . '</span>';
 
-		} else {
-			$title = '';
-		}
+		$title = '<h2>' . get_the_title() . '</h2> <p>'.$price.'</p> ';
 
 		if ( $image_size && has_post_thumbnail() && $include_link ) {
-			$image = '<a class="image" href="' . get_permalink() . '">' . get_the_post_thumbnail( get_the_ID(), $image_size ) . '</a> ';
+			$image = '<div class="image" >' . get_the_post_thumbnail( get_the_ID(), $image_size ) . '</div> 
+			
+			<a class="button" href="#" data-toggle="modal" data-target="#product-'.the_ID().'"> Xem chi tiết <i class="fa fa-search"></i></a>
+			
+			';
 
 		} elseif ( $image_size && has_post_thumbnail() ) {
 			$image = '<span class="image">' . get_the_post_thumbnail( get_the_ID(), $image_size ) . '</span> ';
@@ -575,7 +573,7 @@ function be_display_posts_shortcode( $atts ) {
 
 			if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
 				foreach ( $terms as $term ) {
-					$term_output[] = '<a href="' . get_term_link( $term, $category_display ) . '">' . $term->name . '</a>';
+					$term_output[] = '<div href="' . get_term_link( $term, $category_display ) . '">' . $term->name . '</div>';
 				}
 				$category_display_text = ' <span class="category-display"><span class="category-display-label">' . $category_label . '</span> ' . implode( ', ', $term_output ) . '</span>';
 			}
@@ -591,7 +589,7 @@ function be_display_posts_shortcode( $atts ) {
 
 		}
 
-		$class = array( 'listing-item' );
+		$class = array( 'listing-item', 'product-detail' );
 
 		/**
 		 * Filter the post classes for the inner wrapper element of the current post.
@@ -624,6 +622,7 @@ function be_display_posts_shortcode( $atts ) {
 		 * @param string $category_display_text
 		 */
 		$inner .= apply_filters( 'display_posts_shortcode_output', $output, $original_atts, $image, $title, $date, $excerpt, $inner_wrapper, $content, $class, $author, $category_display_text );
+		// $inner .= '12321321';
 
 	endwhile;
 	wp_reset_postdata();
