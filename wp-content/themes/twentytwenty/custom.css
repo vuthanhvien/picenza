@@ -3,8 +3,9 @@
     letter-spacing: 0.05em;
 }
 
-a {
+a, button, input[type=submit] {
     text-decoration: none !important;
+    cursor: pointer;
 }
 
 .page .entry-header {
@@ -133,6 +134,7 @@ a {
 #custom-footer .footer-inner li a {
     font-size: 14px;
     color: rgb(196, 196, 196);
+    line-height: 14px;
 }
 
 #custom-footer .display-posts-listing .listing-item {
@@ -175,20 +177,19 @@ a {
 
 #contact-form {
     background-color: rgb(221, 63, 63);
-    padding: 20px 0;
+    padding:  0;
 }
 
 #contact-form h4 {
     color: white;
-    font-size: 28px;
+    font-size: 48px;
     font-weight: normal;
 }
 
 #contact-form p,
 #contact-form span {
-    color: rgb(199, 199, 199);
-    ;
-    font-size: 14px;
+    color: rgb(224, 224, 224);
+    font-size: 16px;
 }
 
 #contact-form input[type="text"],
@@ -254,17 +255,16 @@ a {
 }
 
 .metaslider li .caption-wrap p {
-    font-size: 40px;
+    font-size: 48px;
     color: white;
     text-transform: uppercase;
     text-align: center;
+    font-weight: 300;
     margin-bottom: 30px !important;
 }
 
 
-.button,
-#contact-form input[type="submit"],
-.metaslider li .caption-wrap button {
+.button {
     display: inline-block;
     background: #333333 !important;
     position: relative;
@@ -275,16 +275,25 @@ a {
     width: auto !important;
     font-size: 14px !important;
 }
+#contact-form input[type="submit"]{
+    background-color: transparent;
+    font-size: 14px;
+    color: white;
+    margin-top: 0;
+    border: 0;
+    padding: 0;
+}
 
+.button.red-bg {
+    background: #d83b36 !important;
+}
 .button .wp-block-button__link {
     font-size: 14px !important;
     padding: 0 !important;
     background: transparent !important;
 }
 
-.button:before,
-#contact-form input[type="submit"]:before,
-.metaslider li .caption-wrap button:before {
+.button:before{
     content: '';
     position: absolute;
     top: 18px;
@@ -296,9 +305,26 @@ a {
     border-right: 8px solid transparent;
     border-left: 8px solid white;
 }
+#contact-form    .column-two img {
+    width: 45vw;
+    max-width: 45vw;
+    margin-left: 5vw;
+    height: 500px;
+    object-fit: cover;
+}
 
 .section-inner {
     max-width: 1200px !important;
+}
+
+.section-des{
+    max-width: 1200px !important;
+    text-align: center;
+    letter-spacing: 0.1rem;
+    font-size: 16px;
+    font-weight: 300;
+    padding-top: 30px;
+
 }
 
 .custom-red {
@@ -454,14 +480,15 @@ a {
 
 .custom-product-slider ul li {
     display: inline-block;
-    width: 33%;
+    width: 200px;
     margin: 0;
     margin-right: 5px;
 }
 
 .custom-product-slider ul li img {
-    width: unset;
+    width: 200px;
     height: 250px;
+    object-fit: cover;
 }
 
 .custom-product-slider ul li .title {
@@ -656,9 +683,11 @@ a {
 }
 
 .product-list .product-detail {
-    width: 24%;
+    width: calc(24% - 30px);
     display: inline-block;
-    padding: 20px;
+    position: relative;
+    margin: 15px;
+
 }
 
 .product-list .product-detail h2 {
@@ -667,10 +696,42 @@ a {
 
 .product-list .product-detail img {
     height: 350px;
-    width: calc(100% - 40px);
+    width: 100%;
     object-fit: cover;
+    background-color: #ccc;
+}
+.product-list .product-detail .button {
+    padding: 0;
+    padding-left: 40px;
+    overflow: hidden;
+    height: 0;
+    position: absolute;
+    top: 350px;
+    left: 0;
+}
+.product-list .product-detail:hover .button{
+    top: 305px;
+    height: 45px;
+
+}
+.product-list .product-detail .button i {
+   padding: 15px;
+   border-left: 1px solid white;
+   margin-left: 10px;
 }
 
+.product-list .product-detail .product-content h2{
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    margin-top: 10px;
+}
+.product-list .product-detail .product-content p{
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    margin-top: 10px;
+}
 .paging-navigation {
     text-align: center;
     padding-top: 20px;
@@ -817,9 +878,14 @@ a {
 .banner {
     background-image: url('/wp-content/uploads/2020/01/Screen-Shot-2020-01-11-at-21.24.38.png');
     background-size: cover;
-    padding: 200px 0 220px 0;
+    padding: 160px 0 220px 0;
     text-align: center;
 }
+.banner h3 {
+   font-weight: 300;
+   font-size: 60px; 
+}
+
 
 .form-store {
     max-width: 1200px;

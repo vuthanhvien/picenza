@@ -57,14 +57,12 @@
 			   ?>
 
 				<div class="news-detail" id="news-<?php the_ID(); ?>">
-				<a href="<?php the_permalink() ?>"> 
 					<?php the_post_thumbnail() ?>
-					</a>
 					<div class="news-content">
 					<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 					<p>By <span class="author"><?php the_author() ?> </span>| <span class="date"> <?php the_time( get_option( 'date_format' ) ); ?> </span>  </p>
 					<p><?php the_excerpt(); ?> </p>
-					<a href="<?php get_permalink() ?>"> Read more <i class="fa fa-arrow-right"></i></a>
+					<a href="<?php get_permalink() ?>"> Read more <i class="fa fa-caret-right"></i></a>
 				</div>
 					
 				</div> 

@@ -58,19 +58,61 @@
 
                while ($query->have_posts()) { 
 			   $query->the_post(); 
-			   
+			   $postId = get_the_ID();
+			   $price = get_post_meta($postId, 'price', true);
+			   $code = get_post_meta($postId, 'code', true);
+			   $status = get_post_meta($postId, 'status', true);
 			   ?>
-
 				<div class="product-detail" id="news-<?php the_ID(); ?>">
-				<a href="<?php the_permalink() ?>"> 
 					<?php the_post_thumbnail() ?>
-					</a>
-					<div class="new-content">
-					<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-					<a class="button" href="<?php get_permalink() ?>"> Xem chi tiết<i class="fa fa-search"></i></a>
-				</div>
+					<a class="button" href="#" data-toggle="modal" data-target="#product-<?php echo the_ID() ?>"> Xem chi tiết <i class="fa fa-search"></i></a>
+					<div class="product-content">
+					<?php the_title('<h2 class="entry-title">', '</h2>' ); ?>
+					<p class="price"><?php echo $price ?></p>
+					</div>
 					
 				</div> 
+
+				<div class="modal fade" id="product-<?php echo the_ID() ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+						 	<div class="product-popup">
+							 <div class="image">
+							 	<?php the_post_thumbnail() ?>
+									<div class="image-slide">
+
+									</div>
+							 </div>
+							 <div class="info">
+							 <?php the_title('<h2 class="entry-title">', '</h2>' ); ?>
+							 <p>Mã sản phẩm: <?php echo  $code ?></p>
+							 <p>Tình trạng: <?php echo  $status ?></p>
+							 <p class="product-content"><?php echo  $content ?></p>
+							 <div class="prodcut-footer">
+								 <p><? echo $price ?></p>
+								 <div class="shipping" >
+									 <img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.33.png" />
+									 <p>Giao hàng tận nơi <br> Miễn phí lắp đặt</p>
+								 </div>
+							 </div>
+							 <hr />
+
+							 <div class="button-action">
+								 <div class="button-call">
+									 <img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.39.png" />
+									 <p>0939 832 242</p>
+									 <p class="mute">Tư vấn - Hỗ trợ đặt hàng</p>
+								 </div>
+								 <div class="button bg-red">Đặt mua</div>
+								 <input placeholder="Để lại số điện thoại nhận tư vấn" />
+								 <div class="button">Đăng ký tư vấn</div>
+							 </div>
+							 </div>
+							 </div>
+						</div>
+					</div>
+					</div>
+
                 <?php
 			}
             wp_reset_postdata();

@@ -18,7 +18,8 @@
 	get_template_part( 'template-parts/entry-header' );
 	?>
     <div class="banner">
-        <a class="button" href="https://www.google.com/maps/search/Picenza" target="_blank"> 
+        <h3>DANH SÁCH CỬA HÀNG PICENZA</h3>
+        <a class="button red-bg" href="https://www.google.com/maps/search/Picenza" target="_blank"> 
                 Định vị những cửa hàng gần bạn
         </a>
     </div>

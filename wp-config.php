@@ -20,13 +20,13 @@
 
 // ** Thiết lập MySQL - Bạn có thể lấy các thông tin này từ host/server ** //
 /** Tên database MySQL */
-define( 'DB_NAME', 'picenza' );
+define( 'DB_NAME', 'cqdwahsvhosting_new' );
 
 /** Username của database */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'cqdwahsvhosting_vien' );
 
 /** Mật khẩu của database */
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', 'cqdwahsvhosting_vien' );
 
 /** Hostname của database */
 define( 'DB_HOST', 'localhost' );
