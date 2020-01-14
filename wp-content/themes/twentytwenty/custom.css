@@ -3,7 +3,9 @@
     letter-spacing: 0.05em;
 }
 
-a, button, input[type=submit] {
+a,
+button,
+input[type=submit] {
     text-decoration: none !important;
     cursor: pointer;
 }
@@ -177,7 +179,7 @@ a, button, input[type=submit] {
 
 #contact-form {
     background-color: rgb(221, 63, 63);
-    padding:  0;
+    padding: 0;
 }
 
 #contact-form h4 {
@@ -263,9 +265,14 @@ a, button, input[type=submit] {
     margin-bottom: 30px !important;
 }
 
-.button:hover{
+.button:hover {
     color: white;
 }
+
+.button.button-block {
+    width: 100% !important;
+}
+
 .button {
     display: inline-block;
     background: #333333 !important;
@@ -277,7 +284,8 @@ a, button, input[type=submit] {
     width: auto !important;
     font-size: 14px !important;
 }
-#contact-form input[type="submit"]{
+
+#contact-form input[type="submit"] {
     background-color: transparent;
     font-size: 14px;
     color: white;
@@ -289,13 +297,14 @@ a, button, input[type=submit] {
 .button.red-bg {
     background: #d83b36 !important;
 }
+
 .button .wp-block-button__link {
     font-size: 14px !important;
     padding: 0 !important;
     background: transparent !important;
 }
 
-.button:before{
+.button:before {
     content: '';
     position: absolute;
     top: 18px;
@@ -307,7 +316,8 @@ a, button, input[type=submit] {
     border-right: 8px solid transparent;
     border-left: 8px solid white;
 }
-#contact-form    .column-two img {
+
+#contact-form .column-two img {
     width: 45vw;
     max-width: 45vw;
     margin-left: 5vw;
@@ -319,7 +329,7 @@ a, button, input[type=submit] {
     max-width: 1200px !important;
 }
 
-.section-des{
+.section-des {
     max-width: 1200px !important;
     text-align: center;
     letter-spacing: 0.1rem;
@@ -341,7 +351,8 @@ a, button, input[type=submit] {
     text-align: center;
     font-weight: 300;
 }
-.custom-red h2 span{
+
+.custom-red h2 span {
     font-weight: 400;
 }
 
@@ -403,9 +414,11 @@ a, button, input[type=submit] {
     text-transform: uppercase;
     font-size: 36px;
 }
+
 .customer-product-title span {
     font-weight: 400;
 }
+
 .customer-product-title .wp-block-column:nth-child(2) {
     text-align: right;
 }
@@ -485,7 +498,7 @@ a, button, input[type=submit] {
     list-style: none;
     overflow: hidden;
 }
- 
+
 
 
 .post-6 {
@@ -679,6 +692,7 @@ a, button, input[type=submit] {
     margin: 15px;
 
 }
+
 .display-posts-listing.product-list .product-detail {
     width: calc(33.33% - 30px);
     display: inline-block;
@@ -696,6 +710,7 @@ a, button, input[type=submit] {
     object-fit: cover;
     background-color: #ccc;
 }
+
 .product-list .product-detail .button {
     padding: 0;
     padding-left: 40px;
@@ -705,29 +720,33 @@ a, button, input[type=submit] {
     top: 350px;
     left: 0;
 }
-.product-list .product-detail:hover .button{
+
+.product-list .product-detail:hover .button {
     top: 305px;
     height: 45px;
 
 }
+
 .product-list .product-detail .button i {
-   padding: 15px;
-   border-left: 1px solid white;
-   margin-left: 10px;
+    padding: 15px;
+    border-left: 1px solid white;
+    margin-left: 10px;
 }
 
-.product-list .product-detail  h2{
+.product-list .product-detail h2 {
     font-size: 18px;
     font-weight: 400;
     letter-spacing: 0.1rem;
     margin: 10px 0 0 0 !important;
 }
-.product-list .product-detail  p{
+
+.product-list .product-detail p {
     font-size: 20px;
     font-weight: 600;
     letter-spacing: 0.1rem;
     margin: 10px 0 0 0 !important;
 }
+
 .paging-navigation {
     text-align: center;
     padding-top: 20px;
@@ -877,9 +896,10 @@ a, button, input[type=submit] {
     padding: 160px 0 220px 0;
     text-align: center;
 }
+
 .banner h3 {
-   font-weight: 300;
-   font-size: 60px; 
+    font-weight: 300;
+    font-size: 60px;
 }
 
 
@@ -907,5 +927,141 @@ a, button, input[type=submit] {
     width: 100%;
     border-radius: 0;
     text-indent: 30px;
+
+}
+
+.modal .modal-content {
+    max-width: 992px;
+    padding: 30px;
+    max-height: 80vh;
+    overflow: auto;
+}
+
+.modal .modal-dialog {
+    max-width: 992px;
+    margin-top: 10vh;
+
+}
+
+.product-popup {
+    padding: 40px;
+}
+
+.product-popup .image .image-slide {
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: 10px;
+}
+
+.product-popup .image .image-slide .image-slider-item {
+    display: inline-block;
+    width: 33%;
+
+}
+.product-popup .image >img{
+    width: 100%;
+    background: #ccc;
+}
+
+.product-popup .image .image-slide .image-slider-item img {
+    width: 80%;
+    height: 150px;
+    margin-left: 10%;
+    background: #ccc;
+    object-fit: cover;
+}
+
+.product-popup .info h2 {
+    font-weight: 500;
+    font-size: 48px;
+    margin-bottom: 40px;
+}
+
+.product-popup .info p {
+    font-weight: 400;
+    color: #555;
+    margin: 0;
+}
+
+.product-popup .info p span {
+    font-weight: 400;
+    color: #555;
+    color: #d83b36;
+    margin: 0;
+}
+
+.product-popup .product-footer {
+    margin-top: 40px;
+}
+
+.product-popup .product-footer p {
+    font-weight: 500;
+    font-size: 40px;
+    color: #d83b36;
+}
+
+
+.product-popup .product-footer .shipping p {
+    font-weight: 500;
+    font-size: 16px;
+    color: #555;
+    padding-left: 70px;
+}
+
+.product-popup .product-footer .shipping img {
+    float: left;
+}
+
+.product-popup .button-action {
+    margin-top: 20px;
+    padding: 20px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.product-popup .button-action input {
+    border: 1px solid #ccc;
+    height: 55px;
+    padding-left: 30px;
+    background: white;
+    font-size: 12px;
+    font-style: italic;
+
+    letter-spacing: 0.1rem;
+    width: 100%;
+}
+
+.product-popup .button-action .button {
+    height: 55px;
+    padding-top: 20px;
+}
+
+.product-popup .button-action .button-call {
+    background: #d83b36;
+    padding: 6px 10px;
+    margin-bottom: 10px;
+}
+
+.product-popup .button-action .button-call img {
+    float: left;
+
+}
+
+.product-popup .button-action .button-call p {
+    color: white;
+    padding-left: 40px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.product-popup .button-action .button-call p.mute {
+    font-size: 12px;
+    font-style: italic;
+}
+
+.product-popup .info p.product-content {
+    border-top: 1px solid #ccc;
+    margin-top: 30px;
+    padding-top: 20px;
 
 }

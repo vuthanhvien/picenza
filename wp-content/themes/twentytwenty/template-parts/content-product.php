@@ -62,6 +62,7 @@
 			   $price = get_post_meta($postId, 'price', true);
 			   $code = get_post_meta($postId, 'code', true);
 			   $status = get_post_meta($postId, 'status', true);
+			   $content = get_post_meta($postId, 'content', true);
 			   $output = preg_match_all('#<img(.+?)src=(.+?)\/>#', get_the_content(), $matches);
 			   $images = $matches[0];
 
@@ -79,11 +80,14 @@
 				<div class="modal fade" id="product-<?php echo the_ID() ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
-						 	<div class="product-popup">
-							 <div class="image">
+						 	<div class="product-popup row">
+							 <div class="image col-md-5">
 							 	<?php the_post_thumbnail() ?>
-									<div class="image-slide">
+
+								<div class="image-slide">
+									<div class="image-slider-item">
 							 	<?php the_post_thumbnail() ?>
+									</div>
 									<?php 
 									foreach ($images as $img) {
 										echo '<div class="image-slider-item">'.$img.'</div>';
@@ -91,30 +95,41 @@
 									 ?>
 									</div>
 							 </div>
-							 <div class="info">
+							 <div class="info col-md-7">
 							 <?php the_title('<h2 class="entry-title">', '</h2>' ); ?>
-							 <p>Mã sản phẩm: <?php echo  $code ?></p>
-							 <p>Tình trạng: <?php echo  $status ?></p>
+							 <p>Mã sản phẩm: <span> <?php echo  $code ?></span></p>
+							 <p>Tình trạng:<span>  <?php echo  $status ?></span></p>
 							 <p class="product-content"><?php echo  $content ?></p>
-							 <div class="prodcut-footer">
-								 <p><? echo $price ?></p>
-								 <div class="shipping" >
+							 <div class="product-footer row">
+								 <p class="col-md-6"><? echo $price ?></p>
+								 <div class="shipping col-md-6" >
 									 <img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.33.png" />
 									 <p>Giao hàng tận nơi <br> Miễn phí lắp đặt</p>
 								 </div>
 							 </div>
-							 <hr />
 
 							 <div class="button-action">
-								 <div class="button-call">
-									 <img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.39.png" />
-									 <p>0939 832 242</p>
-									 <p class="mute">Tư vấn - Hỗ trợ đặt hàng</p>
+								 <div class="row">
+									 <div class="col-sm-6">
+								 		<div class="button-call">
+											<img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.39.png" />
+											<p>0939 832 242</p>
+											<p class="mute">Tư vấn - Hỗ trợ đặt hàng</p>
+								 		</div>
+								 	</div>
+									 <div class="col-sm-6">
+								 		<div class="button red-bg button-block">Đặt mua</div>
+								 	</div>
+								</div> 
+								<div class="row">
+									 <div class="col-sm-6">
+										 <input placeholder="Để lại số điện thoại nhận tư vấn" />
+								 	</div>
+									 <div class="col-sm-6">
+								 		<div class="button button-block">Đăng ký tư vấn</div>
+								 	</div>
+								 	</div>
 								 </div>
-								 <div class="button bg-red">Đặt mua</div>
-								 <input placeholder="Để lại số điện thoại nhận tư vấn" />
-								 <div class="button">Đăng ký tư vấn</div>
-							 </div>
 							 </div>
 							 </div>
 						</div>

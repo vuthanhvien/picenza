@@ -633,48 +633,63 @@ function be_display_posts_shortcode( $atts ) {
 		$images = $matches[0];
 
 		
-		$modal = '<div class="modal fade" id="product-'.$postId.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				 <div class="product-popup">
-					<div class="image">
-					'.$thumnail.' <div class="image-slide"> '.$thumnail;
-								foreach ($images as $img) {
-									$modal .= '<div class="image-slider-item">'.$img.'</div>';
-								}
-								
-								$modal .='
-							</div>
-					</div>
-					<div class="info">
-						<h2>'.$title.'</h2>
-						<p>Mã sản phẩm: '.$code.' </p>
-						<p>Tình trạng: '.$status.'</p>
-						<p class="product-content">'.$content.' </p>
-						<div class="product-footer">
-							<p>'.$price.'</p>
-							<div class="shipping" >
-								<img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.33.png" />
-								<p>Giao hàng tận nơi <br> Miễn phí lắp đặt</p>
-							</div>
-						</div>
-						<hr />
+		$modal = '
+	<div class="modal fade" id="product-'.$postId.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+						 	<div class="product-popup row">
+							 <div class="image col-md-5">'.$thumnail.'
+							 	<div class="image-slide">
+									<div class="image-slider-item">'.$thumnail.'</div>';
 
-						<div class="button-action">
-							<div class="button-call">
-								<img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.39.png" />
-								<p>0939 832 242</p>
-								<p class="mute">Tư vấn - Hỗ trợ đặt hàng</p>
-							</div>
-							<div class="button bg-red">Đặt mua</div>
-							<input placeholder="Để lại số điện thoại nhận tư vấn" />
-							<div class="button">Đăng ký tư vấn</div>
+									
+									foreach ($images as $img) {
+										$modal .= '<div class="image-slider-item">'.$img.'</div>';
+									}
+							$modal .= '</div>
+							 </div>
+							 <div class="info col-md-7">
+							 <h2>'.$title.'</h2>
+							 <p>Mã sản phẩm: <span> '.$code.'</span></p>
+							 <p>Tình trạng:<span>  '.$status.'</span></p>
+							 <p class="product-content">'.$content.'</p>
+							 <div class="product-footer row">
+								 <p class="col-md-6">'.$price.'</p>
+								 <div class="shipping col-md-6" >
+									 <img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.33.png" />
+									 <p>Giao hàng tận nơi <br> Miễn phí lắp đặt</p>
+								 </div>
+							 </div>
+
+							 <div class="button-action">
+								 <div class="row">
+									 <div class="col-sm-6">
+								 		<div class="button-call">
+											<img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.39.png" />
+											<p>0939 832 242</p>
+											<p class="mute">Tư vấn - Hỗ trợ đặt hàng</p>
+								 		</div>
+								 	</div>
+									 <div class="col-sm-6">
+								 		<div class="button red-bg button-block">Đặt mua</div>
+								 	</div>
+								</div> 
+								<div class="row">
+									 <div class="col-sm-6">
+										 <input placeholder="Để lại số điện thoại nhận tư vấn" />
+								 	</div>
+									 <div class="col-sm-6">
+								 		<div class="button button-block">Đăng ký tư vấn</div>
+								 	</div>
+								 	</div>
+								 </div>
+							 </div>
+							 </div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>';
+				
+				';
 		$inner .= $modal;
 
 	endwhile;
