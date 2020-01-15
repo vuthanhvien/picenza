@@ -494,15 +494,21 @@ function be_display_posts_shortcode( $atts ) {
 
 		$price = get_post_meta($post->ID, 'price', true);
 
+		if($post->post_type == 'post'){
+		$title = '<div class="content-inner"><h5>' . get_the_title() . '</h5> <p>'.$price.'</p></div> ';
+		}else{
+			$title = '<h2>' . get_the_title() . '</h2> <p>'.$price.'</p> ';
 
-		$title = '<h2>' . get_the_title() . '</h2> <p>'.$price.'</p> ';
+		}
 
 		if ( $image_size && has_post_thumbnail() && $include_link ) {
-			$image = '<div class="image" >' . get_the_post_thumbnail( get_the_ID(), $image_size ) . '</div> 
-			
-			<a class="button" href="#" data-toggle="modal" data-target="#product-'.get_the_ID().'"> Xem chi tiết <i class="fa fa-search"></i></a>
-			
-			';
+			if($post->post_type != 'post'){
+				$image = '<div class="image" >' . get_the_post_thumbnail( get_the_ID(), $image_size ) . '</div> ';
+				$image.='<a class="button" href="#" data-toggle="modal" data-target="#product-'.get_the_ID().'"> Xem chi tiết <i class="fa fa-search"></i></a>';
+			}else{
+				$image = '<a href="'. get_permalink() .'"><div class="image" >' . get_the_post_thumbnail( get_the_ID(), $image_size ) . '</div></a> ';
+
+			}
 
 		} elseif ( $image_size && has_post_thumbnail() ) {
 			$image = '<span class="image">' . get_the_post_thumbnail( get_the_ID(), $image_size ) . '</span> ';
@@ -588,8 +594,11 @@ function be_display_posts_shortcode( $atts ) {
 			$category_display_text = apply_filters( 'display_posts_shortcode_category_display', $category_display_text, $terms, $category_display, $original_atts );
 
 		}
-
-		$class = array( 'listing-item', 'product-detail' );
+		if( $post->post_type  == 'post'){
+			$class = array( 'listing-item' );
+		}else{
+			$class = array( 'listing-item', 'product-detail' );
+		}
 
 		/**
 		 * Filter the post classes for the inner wrapper element of the current post.
@@ -633,7 +642,7 @@ function be_display_posts_shortcode( $atts ) {
 		$images = $matches[0];
 
 		
-		$modal = '
+		$modal = ' 
 	<div class="modal fade" id="product-'.$postId.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
@@ -690,7 +699,12 @@ function be_display_posts_shortcode( $atts ) {
 				</div>
 				
 				';
-		$inner .= $modal;
+				if( $post->post_type  == 'post'){
+
+				}else{
+					$inner .= $modal;
+				}
+		
 
 	endwhile;
 	wp_reset_postdata();

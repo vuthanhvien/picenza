@@ -23,11 +23,26 @@ if ( $has_footer_menu || $has_social_menu || $has_sidebar_1 || $has_sidebar_2 ||
 
 	<div class="footer-nav-widgets-wrapper header-footer-group" id="custom-footer">
 		<?php if ( $has_sidebar_top ) { ?>
+			<div class="form-action-switch" id="lien-he">
+				<button onclick="openForm('#form-1')" id="form-1-button"  >
+				<img class="active" src="/wp-content/uploads/2020/01/comment-2.png" />
+				<img src="/wp-content/uploads/2020/01/comment-1.png" />
+				 Thắc mắc cá nhân</button>
+				<button onclick="openForm('#form-2')"  id="form-2-button" >
+				<img class="active" src="/wp-content/uploads/2020/01/shop.png" />
+				<img src="/wp-content/uploads/2020/01/shop-1.png" />
+				Đăng ký đại lý</button>
+			</div>
 			<div id="contact-form">
 				<div class="section-inner">
 					<div class="footer-widgets-wrapper">
 						<div class="footer-widgets column-one grid-item">
-							<?php dynamic_sidebar( 'sidebar-top' ); ?>
+							<div id="form-1">
+							<?php echo do_shortcode( '[contact-form-7 id="52" title="Để lại thông tin"]' ); ?>
+							</div>
+							<div id="form-2">
+							<?php echo do_shortcode( '[contact-form-7 id="282" title="Đăng ký đại lý"]' ); ?>
+							</div>
 						</div>
 						<div class="footer-widgets column-two grid-item">
 							<img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-10-at-16.39.27-2.png" />

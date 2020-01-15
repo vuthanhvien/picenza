@@ -142,8 +142,15 @@ input[type=submit] {
 #custom-footer .display-posts-listing .listing-item {
     height: 100px;
     padding: 10px 0;
+    width: 100%;
+    display: block;
 }
-
+#custom-footer .display-posts-listing .listing-item h5 {
+    font-size: 12px;
+    color: rgb(196, 196, 196);
+    display: block;
+    margin: 0;
+}
 #custom-footer .display-posts-listing .listing-item .image {
     float: left;
     width: 80px;
@@ -244,6 +251,10 @@ input[type=submit] {
 
 .page .entry-content>.alignfull {
     margin: 0;
+}
+
+.metaslider .caption {
+    max-width: 992px;
 }
 
 .metaslider li .caption-wrap {
@@ -519,8 +530,14 @@ input[type=submit] {
 }
 
 #custom-about h2 {
+    text-align: center;
     font-weight: 300;
+    margin-top: 100px;
     text-transform: uppercase;
+}
+
+#custom-about h2 span {
+    font-weight: 400;
 }
 
 #custom-about .about-content h4 {
@@ -529,6 +546,17 @@ input[type=submit] {
     text-transform: uppercase;
     position: relative;
     margin-bottom: 40px;
+    width: 120%;
+    margin-left: -20%;
+}
+
+
+#custom-about .about-content p {
+    font-weight: 400;
+    position: relative;
+    color: #555;
+    width: 120%;
+    margin-left: -10%;
 }
 
 #custom-about .about-content h4:after {
@@ -541,6 +569,18 @@ input[type=submit] {
     left: calc(50% - 50px);
 }
 
+#custom-about .about-2 .about-content:before {
+    left: 0;
+}
+
+#custom-about .about-2 .about-content h4 {
+    margin-left: 0;
+}
+
+#custom-about .about-2 .about-content p {
+    margin-left: 10%;
+}
+
 #custom-about .about-content {
     padding: 20px;
     text-align: center;
@@ -551,7 +591,18 @@ input[type=submit] {
     width: 120%;
     background: white;
     z-index: 1;
+    position: relative;
 
+}
+
+#custom-about .about-content:before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 100%;
+    top: 0;
+    left: -20%;
+    background: white;
 }
 
 #custom-about .wp-block-column img {
@@ -581,6 +632,13 @@ input[type=submit] {
     text-transform: uppercase;
     padding-top: 50px;
     padding-bottom: 50px;
+    text-align: center;
+    border-bottom: 1px solid #fff4;
+}
+
+#custom-key-value h2 span {
+    font-weight: 400;
+
 }
 
 #custom-key-value .wp-block-column {
@@ -615,6 +673,11 @@ input[type=submit] {
     text-align: center;
 }
 
+#customers h2 span {
+    font-weight: 400;
+
+}
+
 #customers .wp-block-gallery {
     max-width: 1200px;
     margin: 0;
@@ -635,7 +698,7 @@ input[type=submit] {
 }
 
 .news-list .news-detail {
-    width: calc(33.33% - 30px);
+    width: calc(33% - 30px);
     margin: 0 15px;
     display: inline-grid;
     /* background: white; */
@@ -676,7 +739,7 @@ input[type=submit] {
 .news-list .news-detail img {
     width: 100%;
     height: 350px;
-    object-fit: cover;
+    object-fit: contain;
 
 }
 
@@ -702,13 +765,17 @@ input[type=submit] {
 
 .product-list .product-detail h2 {
     font-size: 16px;
+    /* white-space: normal; */
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .product-list .product-detail img {
     height: 350px;
     width: 100%;
-    object-fit: cover;
-    background-color: #ccc;
+    object-fit: contain;
+    background-color: #eee;
 }
 
 .product-list .product-detail .button {
@@ -727,7 +794,7 @@ input[type=submit] {
 
 }
 
-.product-list .product-detail .button i {
+  .button i {
     padding: 15px;
     border-left: 1px solid white;
     margin-left: 10px;
@@ -770,7 +837,11 @@ input[type=submit] {
 
 .flexslider .slides img {
     object-fit: cover;
-    height: 600px !important;
+    height: 450px !important;
+}
+
+#post-2 .flexslider .slides img {
+    height: 650px !important;
 }
 
 @media only screen and (max-width: 600px) {
@@ -782,6 +853,68 @@ input[type=submit] {
     #site-header .top-menu li:nth-child(4),
     #site-header .top-menu li:nth-child(3) {
         display: none;
+    }
+
+    .product-list .product-detail {
+        width: 100%;
+    }
+
+    .form-store>div:nth-child(1),
+    .form-store>div:nth-child(2) {
+        width: 100% !important;
+        display: block;
+        margin: 10px 0;
+    }
+
+    .form-store>div {
+        display: block !important;
+        text-align: center;
+    }
+
+    .store-list .store-detail {
+        width: 100% !important;
+    }
+
+    #contact-form .column-two img {
+        display: none;
+    }
+
+    #contact-form {
+        padding: 40px 0;
+    }
+
+    .news-list {
+        margin-top: 100px !important;
+    }
+
+    .header-titles-wrapper {
+        padding-top: 17px !important;
+    }
+
+    .nav-toggle {
+        padding-top: 40px !important;
+    }
+
+    #custom-about .about-content:before {
+        width: 100%;
+        left: 0;
+    }
+
+    #custom-about .about-content h4,
+    #custom-about .about-content p {
+
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .display-posts-listing.product-list .product-detail {
+        width: 100%;
+
+    }
+
+    .custom-contact-action .wp-block-button__link {
+        width: 100%;
+
     }
 
 }
@@ -893,7 +1026,7 @@ input[type=submit] {
 .banner {
     background-image: url('/wp-content/uploads/2020/01/Screen-Shot-2020-01-11-at-21.24.38.png');
     background-size: cover;
-    padding: 160px 0 220px 0;
+    padding: 100px 0 120px 0;
     text-align: center;
 }
 
@@ -948,7 +1081,7 @@ input[type=submit] {
 }
 
 .product-popup .image .image-slide {
-    overflow: hidden;
+    overflow: auto;
     white-space: nowrap;
     margin-top: 10px;
 }
@@ -956,25 +1089,32 @@ input[type=submit] {
 .product-popup .image .image-slide .image-slider-item {
     display: inline-block;
     width: 33%;
+    height: 150px;
 
 }
-.product-popup .image >img{
+
+.product-popup .image>img {
     width: 100%;
-    background: #ccc;
+    /* background: #f4f4f4; */
+    object-fit: contain;
+    height: 350px;
+
 }
 
 .product-popup .image .image-slide .image-slider-item img {
-    width: 80%;
+    width: calc(100% - 10px);
     height: 150px;
-    margin-left: 10%;
-    background: #ccc;
-    object-fit: cover;
+    margin: 0;
+    margin-left: 5px;
+    /* background: #f4f4f4; */
+    object-fit: contain;
 }
 
 .product-popup .info h2 {
     font-weight: 500;
-    font-size: 48px;
-    margin-bottom: 40px;
+    font-size: 40px;
+    margin-bottom: 24px!important;
+    margin: 0!important;
 }
 
 .product-popup .info p {
@@ -1064,4 +1204,91 @@ input[type=submit] {
     margin-top: 30px;
     padding-top: 20px;
 
+}
+
+.metaslider {
+    margin: 0 15px;
+    width: calc(100% - 30px) !important;
+}
+.custom-red{
+    margin: 0 15px!important;
+    width: calc(100% - 30px) !important;
+}
+.post-inner{
+    /* padding-bottom: 0; */
+}
+#custom-key-value{
+    margin: 0 15px!important;
+    width: calc(100% - 30px) !important;
+}
+
+.form-action-switch{
+    background: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: -2px;
+}
+
+.form-action-switch button{
+    background: transparent!important;
+    color: #bf1017;
+    height: 60px;
+    padding: 0 40px;
+    border-radius: 0;
+    max-width: 330px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 0 20px;
+    font-weight: bold;
+    border: 1px solid #bf1017;
+}
+.form-action-switch button img.active{
+    display: none;
+}
+.form-action-switch button.active img.active{
+    display: flex;
+}
+.form-action-switch button.active img{
+    display: none;
+}
+.form-action-switch button.active{
+
+    background: #bf1017!important;
+    color: white;
+}
+.form-action-switch button img{
+    /* float: left; */
+    margin-right: 20px;
+    height: 40px;
+}
+.download-btn{
+    padding: 1px;
+    padding-left: 40px;
+    height: 50px;
+}
+.image-slide {
+    position: relative;
+}
+.image-slide .popup-next-left,
+    .image-slide .popup-next-right{
+        position: absolute;
+        top: 50px;
+        height: 40px;
+        width: 20px;
+        background: #0004;
+        color: white;
+        padding: 5px 0 0  3px;
+
+}
+.image-slide .popup-next-left{
+    left: 0;
+}
+.image-slide .popup-next-right{
+    right: 0;
 }

@@ -33,11 +33,11 @@
 				margin: 0!important;
 			}
 			.custom-product-slider .next-right{
-				right: 15px;
+				right: 0;
 
 			}
 			.custom-product-slider .next-left{
-				left: 15px;
+				left: 0;
 
 			}
 			.custom-product-slider .next-right,
@@ -62,21 +62,65 @@
 
 	 
 		<script>
+			jQuery(document).ready(function() {
+
+		
+			// jQuery('.product-popup .image-slide').append('<div class="popup-next-right"><i class="fa fa-chevron-right" /></div>');
+			// jQuery('.product-popup .image-slide').prepend('<div class="popup-next-left"><i class="fa fa-chevron-left" /></div>');
+			jQuery('.download-btn').append('<i class="fa fa-file-alt"/>');
+
+			jQuery('.image-slide .image-slider-item').click(function(){
+				var src = jQuery(this).find('img').attr('src');
+				var parent = jQuery(this).parent().parent().children();
+				parent.attr('src', src);
+				parent[0].srcset = '';
+				parent[0].src = src;
+			})
+			// var positionTemp = 0;
+			// jQuery('.image-slide .popup-next-right').on('click', function(){
+			// 	var width = jQuery('.image-slider-item').width();
+			// 	var parent = jQuery(this).parent().children(); 
+			// 	positionTemp = positionTemp + width;
+			// 	console.log(positionTemp, parent);
+			// 	parent.scrollLeft(positionTemp);
+				
+			// })
+
+			// jQuery('.image-slide .popup-next-left').on('click', function(){
+			// 	var width = jQuery('.image-slider-item').width();
+			// 	var parent = jQuery(this).parent().children(); 
+			// 	positionTemp = positionTemp - width;
+			// 	parent.scrollLeft(positionTemp);
+				
+			// })
+
+
+			
+			
+			// jQuery('.popup-next-right').on('click', function(){
+			// 	var width = jQuery('.image-slide-item').width;
+			// 	var parent = jQuery(this).parent().children();
+			// 	parent.scrollLeft(position + 270);
+			// 	position = position + 270;
+			// })
+			
+			
 			jQuery('.custom-product-slider ').append('<div class="next-right"><i class="fa fa-chevron-right" /></div>');
 			jQuery('.custom-product-slider ').prepend('<div class="next-left"><i class="fa fa-chevron-left" /></div>');
 			var position = 0;
 			jQuery('.next-right').on('click', function(){
-				var width = jQuery('.listing-item').width;
-				var parent = jQuery(this).parent().children();
-				parent.scrollLeft(position + 270);
-				position = position + 270;
+				var width = jQuery('.listing-item').width()  +30;
+				var parent = jQuery(this).parent().children(); 
+				position = position + width ; 
+				parent.scrollLeft(position);
+				
 			})
 
 			jQuery('.next-left').on('click', function(){
-				var width = jQuery('.listing-item').width;
+				var width = jQuery('.listing-item').width() + 30 ;
 				var parent = jQuery(this).parent().children();
-				parent.scrollLeft(position - 270);
-				position = position - 270;
+				position = position - width;
+				parent.scrollLeft(position);
 			})
 			jQuery('.form-store .city').change(function(){
 				var id = jQuery(this).val();
@@ -102,6 +146,19 @@
 
 				jQuery('#total-store').html('CÓ '+total+' CỬA HÀNG')
 			})
+			
+				openForm('#form-1')
+        });
+		function openForm(id){
+				jQuery(this).addClass('active')
+				jQuery('#form-1').hide();
+				jQuery('#form-2').hide();
+				jQuery('#form-1-button').removeClass('active');
+				jQuery('#form-2-button').removeClass('active');
+
+				jQuery(id).show();
+				jQuery(id+'-button').addClass('active');
+			}
 		</script>
 	</body>
 </html>
