@@ -20,7 +20,7 @@
     <div class="banner">
         <h3>DANH SÁCH CỬA HÀNG PICENZA</h3>
         <a class="button red-bg" href="https://www.google.com/maps/search/Picenza" target="_blank"> 
-                Định vị những cửa hàng gần bạn
+                Định vị cửa hàng gần bạn
         </a>
     </div>
     <style>

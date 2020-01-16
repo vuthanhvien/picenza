@@ -23,7 +23,8 @@ if ( $has_footer_menu || $has_social_menu || $has_sidebar_1 || $has_sidebar_2 ||
 
 	<div class="footer-nav-widgets-wrapper header-footer-group" id="custom-footer">
 		<?php if ( $has_sidebar_top ) { ?>
-			<div class="form-action-switch" id="lien-he">
+			<div class="form-action-switch-out" id="lien-he">
+				<div class="form-action-switch">
 				<button onclick="openForm('#form-1')" id="form-1-button"  >
 				<img class="active" src="/wp-content/uploads/2020/01/comment-2.png" />
 				<img src="/wp-content/uploads/2020/01/comment-1.png" />
@@ -32,6 +33,7 @@ if ( $has_footer_menu || $has_social_menu || $has_sidebar_1 || $has_sidebar_2 ||
 				<img class="active" src="/wp-content/uploads/2020/01/shop.png" />
 				<img src="/wp-content/uploads/2020/01/shop-1.png" />
 				Đăng ký đại lý</button>
+				</div>
 			</div>
 			<div id="contact-form">
 				<div class="section-inner">

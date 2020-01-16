@@ -495,23 +495,23 @@ function be_display_posts_shortcode( $atts ) {
 		$price = get_post_meta($post->ID, 'price', true);
 
 		if($post->post_type == 'post'){
-		$title = '<div class="content-inner"><h5>' . get_the_title() . '</h5> <p>'.$price.'</p></div> ';
+			$title = '<div class="content-inner"><h5>' . get_the_title() . '</h5></div> ';
 		}else{
-			$title = '<h2>' . get_the_title() . '</h2> <p>'.$price.'</p> ';
+			$title = '<h2>' . get_the_title() . '</h2> <p>'.$price.'&nbsp;</p> ';
 
 		}
 
 		if ( $image_size && has_post_thumbnail() && $include_link ) {
 			if($post->post_type != 'post'){
-				$image = '<div class="image" >' . get_the_post_thumbnail( get_the_ID(), $image_size ) . '</div> ';
+				$image = '<div class="image" >' . get_the_post_thumbnail( get_the_ID(), 'large' ) . '</div> ';
 				$image.='<a class="button" href="#" data-toggle="modal" data-target="#product-'.get_the_ID().'"> Xem chi tiết <i class="fa fa-search"></i></a>';
 			}else{
-				$image = '<a href="'. get_permalink() .'"><div class="image" >' . get_the_post_thumbnail( get_the_ID(), $image_size ) . '</div></a> ';
+				$image = '<a href="'. get_permalink() .'"><div class="image" >' . get_the_post_thumbnail( get_the_ID(), 'large' ) . '</div></a> ';
 
 			}
 
 		} elseif ( $image_size && has_post_thumbnail() ) {
-			$image = '<span class="image">' . get_the_post_thumbnail( get_the_ID(), $image_size ) . '</span> ';
+			$image = '<span class="image">' . get_the_post_thumbnail( get_the_ID(), 'large' ) . '</span> ';
 
 		}
 
@@ -632,11 +632,21 @@ function be_display_posts_shortcode( $atts ) {
 		 */
 		$inner .= apply_filters( 'display_posts_shortcode_output', $output, $original_atts, $image, $title, $date, $excerpt, $inner_wrapper, $content, $class, $author, $category_display_text );
 		$postId = $post->ID;
+		$metadata = get_post_meta($postId, '');
 		$price = get_post_meta($postId, 'price', true);
-		$code = get_post_meta($postId, 'code', true);
-		$status = get_post_meta($postId, 'status', true);
+		$content = get_post_meta($postId, 'content', true);
+		// $code = get_post_meta($postId, 'code', true);
+		// $status = get_post_meta($postId, 'status', true);
 		$title =  get_the_title();
-		$thumnail= get_the_post_thumbnail();
+		$thumnail= get_the_post_thumbnail(null,'large');
+		$meta = '';
+		foreach ($metadata as $key=>$value) {
+			if($key[0]!= '_' && $key != 'price' && $key != 'content'){
+				$meta .= "<p>".$key.": <span>".$value[0]."</span></p>";
+			}
+		}
+		$meta = nl2br($meta);
+			   $content = nl2br($content);
 
 		preg_match_all('#<img(.+?)src=(.+?)\/>#', get_the_content(), $matches);
 		$images = $matches[0];
@@ -658,9 +668,7 @@ function be_display_posts_shortcode( $atts ) {
 							$modal .= '</div>
 							 </div>
 							 <div class="info col-md-7">
-							 <h2>'.$title.'</h2>
-							 <p>Mã sản phẩm: <span> '.$code.'</span></p>
-							 <p>Tình trạng:<span>  '.$status.'</span></p>
+							 <h2>'.$title.'</h2>'.$meta.'
 							 <p class="product-content">'.$content.'</p>
 							 <div class="product-footer row">
 								 <p class="col-md-6">'.$price.'</p>
@@ -680,7 +688,7 @@ function be_display_posts_shortcode( $atts ) {
 								 		</div>
 								 	</div>
 									 <div class="col-sm-6">
-								 		<div class="button red-bg button-block">Đặt mua</div>
+								 		<button class="button red-bg button-block">Đặt mua</button>
 								 	</div>
 								</div> 
 								<div class="row">
@@ -688,7 +696,7 @@ function be_display_posts_shortcode( $atts ) {
 										 <input placeholder="Để lại số điện thoại nhận tư vấn" />
 								 	</div>
 									 <div class="col-sm-6">
-								 		<div class="button button-block">Đăng ký tư vấn</div>
+								 		<button class="button button-block">Đăng ký tư vấn</button>
 								 	</div>
 								 	</div>
 								 </div>

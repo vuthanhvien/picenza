@@ -59,20 +59,32 @@
                while ($query->have_posts()) { 
 			   $query->the_post(); 
 			   $postId = get_the_ID();
+			   $metadata = get_post_meta($postId, '');
 			   $price = get_post_meta($postId, 'price', true);
-			   $code = get_post_meta($postId, 'code', true);
-			   $status = get_post_meta($postId, 'status', true);
+			//    $code = get_post_meta($postId, 'code', true);
+			//    $status = get_post_meta($postId, 'status', true);
 			   $content = get_post_meta($postId, 'content', true);
 			   $output = preg_match_all('#<img(.+?)src=(.+?)\/>#', get_the_content(), $matches);
 			   $images = $matches[0];
 
+			   $meta = '';
+			   foreach ($metadata as $key=>$value) {
+				   if($key[0]!= '_' && $key != 'price' && $key != 'content'){
+					$meta .= "<p>".$key.": <span>".$value[0]."</span></p>";
+				   }
+			   }
+			   $meta = nl2br($meta);
+			   $content = nl2br($content);
+
+
+
 			   ?>
 				<div class="product-detail" id="news-<?php the_ID(); ?>">
-					<?php the_post_thumbnail() ?>
+					<?php the_post_thumbnail('large') ?>
 					<a class="button" href="#" data-toggle="modal" data-target="#product-<?php echo the_ID() ?>"> Xem chi tiết <i class="fa fa-search"></i></a>
 					<div class="product-content">
 					<?php the_title('<h2 class="entry-title">', '</h2>' ); ?>
-					<p class="price"><?php echo $price ?></p>
+					<p class="price"><?php echo $price ?>&nbsp;</p>
 					</div>
 					
 				</div> 
@@ -82,11 +94,11 @@
 						<div class="modal-content">
 						 	<div class="product-popup row">
 							 <div class="image col-md-5">
-							 	<?php the_post_thumbnail() ?>
+							 	<?php the_post_thumbnail('large') ?>
 
 								<div class="image-slide">
 									<div class="image-slider-item">
-							 	<?php the_post_thumbnail() ?>
+							 	<?php the_post_thumbnail('large') ?>
 									</div>
 									<?php 
 									foreach ($images as $img) {
@@ -97,8 +109,7 @@
 							 </div>
 							 <div class="info col-md-7">
 							 <?php the_title('<h2 class="entry-title">', '</h2>' ); ?>
-							 <p>Mã sản phẩm: <span> <?php echo  $code ?></span></p>
-							 <p>Tình trạng:<span>  <?php echo  $status ?></span></p>
+							<?php echo $meta ?>
 							 <p class="product-content"><?php echo  $content ?></p>
 							 <div class="product-footer row">
 								 <p class="col-md-6"><? echo $price ?></p>

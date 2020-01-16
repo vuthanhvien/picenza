@@ -22,41 +22,7 @@
 				</div><!-- .section-inner -->
 			</footer><!-- #site-footer -->
 		<?php wp_footer(); ?>
-
-		<style>
-			.custom-product-slider {
-				position: relative;
-				margin-left: 0!important;
-			}
-
-			.custom-product-slider  .display-posts-listing{
-				margin: 0!important;
-			}
-			.custom-product-slider .next-right{
-				right: 0;
-
-			}
-			.custom-product-slider .next-left{
-				left: 0;
-
-			}
-			.custom-product-slider .next-right,
-			.custom-product-slider .next-left{
-				position: absolute;
-				height: 50px;
-				width: 30px;
-				background: #0003;
-				top: calc(50% - 55px);
-				color: white;
-				padding: 10px 5px;
-				cursor: pointer;
-				z-index: 1;
-			}
-			.custom-product-slider .next-right:hover,
-			.custom-product-slider .next-left:hover{
-				background: #0004;
-			}
-			</style>
+ 
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
