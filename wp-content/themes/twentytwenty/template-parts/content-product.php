@@ -128,11 +128,11 @@
 											<p class="mute">Tư vấn - Hỗ trợ đặt hàng</p>
 								 		</div>
 								 	</div>
-									 <div class="col-sm-6">
+									 <!-- <div class="col-sm-6">
 								 		<div class="button red-bg button-block">Đặt mua</div>
-								 	</div>
+								 	</div> -->
 								</div> 
-								<div class="row">
+								<!-- <div class="row">
 									 <div class="col-sm-6">
 										 <input placeholder="Để lại số điện thoại nhận tư vấn" />
 								 	</div>
@@ -140,7 +140,7 @@
 								 		<div class="button button-block">Đăng ký tư vấn</div>
 								 	</div>
 								 	</div>
-								 </div>
+								 </div> -->
 							 </div>
 							 </div>
 						</div>

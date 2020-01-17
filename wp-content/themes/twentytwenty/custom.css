@@ -471,6 +471,7 @@ input[type=submit] {
     color: #333 !important;
     margin: 20px 0 0 0 !important;
     width: 35% !important;
+    text-align: justify;
 }
 .custom-cover p:nth-of-type(1){
     margin-top: 50px!important;;
@@ -727,7 +728,7 @@ input[type=submit] {
 
 #custom-key-value .wp-block-column img {
     margin: 0 auto;
-
+    height: 90px;
 }
 
 #custom-key-value .wp-block-column h4 {

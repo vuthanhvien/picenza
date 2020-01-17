@@ -687,18 +687,9 @@ function be_display_posts_shortcode( $atts ) {
 											<p class="mute">Tư vấn - Hỗ trợ đặt hàng</p>
 								 		</div>
 								 	</div>
-									 <div class="col-sm-6">
-								 		<button class="button red-bg button-block">Đặt mua</button>
-								 	</div>
+									 
 								</div> 
-								<div class="row">
-									 <div class="col-sm-6">
-										 <input placeholder="Để lại số điện thoại nhận tư vấn" />
-								 	</div>
-									 <div class="col-sm-6">
-								 		<button class="button button-block">Đăng ký tư vấn</button>
-								 	</div>
-								 	</div>
+								 
 								 </div>
 							 </div>
 							 </div>
