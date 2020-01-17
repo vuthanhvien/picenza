@@ -443,6 +443,7 @@ input[type=submit] {
     margin-top: 70px !important;
     margin-bottom: 70px !important;
     padding: 150px 0 120px 0;
+    background-position: left!important;
 }
 
 .custom-cover .button {
@@ -470,7 +471,7 @@ input[type=submit] {
     font-weight: 300;
     color: #333 !important;
     margin: 20px 0 0 0 !important;
-    width: 35% !important;
+    width: 45% !important;
     text-align: justify;
 }
 .custom-cover p:nth-of-type(1){
@@ -872,7 +873,8 @@ input[type=submit] {
     height: 350px;
     width: 100%;
     object-fit: contain;
-    background-color: #eee;
+    /* background-color: #eee; */
+    border: 1px solid #eee;
 }
 
 .product-list .product-detail .button {
@@ -939,6 +941,7 @@ input[type=submit] {
 
 #post-2 .flexslider .slides img {
     height: 850px !important;
+    width: 100%!important;
 }
 
 @media only screen and (max-width: 600px) {

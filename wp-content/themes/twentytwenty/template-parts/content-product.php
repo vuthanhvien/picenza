@@ -110,15 +110,15 @@
 							 <div class="info col-md-7">
 							 <?php the_title('<h2 class="entry-title">', '</h2>' ); ?>
 							<?php echo $meta ?>
-							 <p class="product-content"><?php echo  $content ?></p>
-							 <div class="product-footer row">
-								 <p class="col-md-6"><? echo $price ?></p>
-								 <div class="shipping col-md-6" >
-									 <img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.33.png" />
-									 <p>Giao hàng tận nơi <br> Miễn phí lắp đặt</p>
-								 </div>
-							 </div>
-
+							
+							<?php if($content){ echo '<p class="product-content">'.$content.'</p>'; } ?>
+							 <div class="product-footer">
+								 <?php if($price){
+									  echo '<div class=" row">
+											<p class="col-md-6">'.$price.'</p>
+							 			</div>';
+								 }
+								 ?>
 							 <div class="button-action">
 								 <div class="row">
 									 <div class="col-sm-6">
@@ -127,7 +127,11 @@
 											<p>0939 832 242</p>
 											<p class="mute">Tư vấn - Hỗ trợ đặt hàng</p>
 								 		</div>
-								 	</div>
+									 </div>
+									 <div class="shipping col-md-6" >
+									 <img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.33.png" />
+									 <p>Giao hàng tận nơi <br> Miễn phí lắp đặt</p>
+								 </div>
 									 <!-- <div class="col-sm-6">
 								 		<div class="button red-bg button-block">Đặt mua</div>
 								 	</div> -->
@@ -139,8 +143,9 @@
 									 <div class="col-sm-6">
 								 		<div class="button button-block">Đăng ký tư vấn</div>
 								 	</div>
-								 	</div>
-								 </div> -->
+								 	</div>-->
+								 </div> 
+							 </div>
 							 </div>
 							 </div>
 						</div>

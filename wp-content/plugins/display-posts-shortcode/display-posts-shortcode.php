@@ -653,45 +653,46 @@ function be_display_posts_shortcode( $atts ) {
 
 		
 		$modal = ' 
-	<div class="modal fade" id="product-'.$postId.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal fade" id="product-'.$postId.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 						 	<div class="product-popup row">
-							 <div class="image col-md-5">'.$thumnail.'
-							 	<div class="image-slide">
-									<div class="image-slider-item">'.$thumnail.'</div>';
+								<div class="image col-md-5">'.$thumnail.'
+									<div class="image-slide">
+										<div class="image-slider-item">'.$thumnail.'</div>';
 
-									
-									foreach ($images as $img) {
-										$modal .= '<div class="image-slider-item">'.$img.'</div>';
-									}
-							$modal .= '</div>
-							 </div>
-							 <div class="info col-md-7">
-							 <h2>'.$title.'</h2>'.$meta.'
-							 <p class="product-content">'.$content.'</p>
-							 <div class="product-footer row">
-								 <p class="col-md-6">'.$price.'</p>
-								 <div class="shipping col-md-6" >
-									 <img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.33.png" />
-									 <p>Giao hàng tận nơi <br> Miễn phí lắp đặt</p>
-								 </div>
-							 </div>
+										
+										foreach ($images as $img) {
+											$modal .= '<div class="image-slider-item">'.$img.'</div>';
+										}
+								$modal .= '</div>
+								</div>
+								<div class="info col-md-7">
+								<h2>'.$title.'</h2>'.$meta.'
+								<p class="product-content">'.$content.'</p>
+								<div class="product-footer">
+									<div class=" row">
+										<p class="col-md-6">'.$price.'</p>
+										
+									</div>
 
-							 <div class="button-action">
-								 <div class="row">
-									 <div class="col-sm-6">
-								 		<div class="button-call">
-											<img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.39.png" />
-											<p>0939 832 242</p>
-											<p class="mute">Tư vấn - Hỗ trợ đặt hàng</p>
-								 		</div>
-								 	</div>
-									 
-								</div> 
-								 
-								 </div>
-							 </div>
+									<div class="button-action">
+										<div class="row">
+											<div class="col-sm-6">
+												<div class="button-call">
+													<img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.39.png" />
+													<p>0939 832 242</p>
+													<p class="mute">Tư vấn - Hỗ trợ đặt hàng</p>
+												</div>
+											</div>
+											<div class="shipping col-md-6" >
+											<img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.33.png" />
+											<p>Giao hàng tận nơi <br> Miễn phí lắp đặt</p>
+										</div>
+										</div> 
+										</div>
+									</div>
+								</div>
 							 </div>
 						</div>
 					</div>
