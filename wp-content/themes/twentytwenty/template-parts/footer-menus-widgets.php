@@ -17,6 +17,18 @@ $has_sidebar_3 = is_active_sidebar( 'sidebar-3' );
 $has_sidebar_4 = is_active_sidebar( 'sidebar-4' );
 $has_sidebar_top = is_active_sidebar( 'sidebar-top' );
 
+$slug = get_permalink();
+
+$urlArray = parse_url($slug);
+$path = $urlArray['path'];
+
+$page= 'home';
+if(strpos($path,"/gioi-thieu") > -1 || strpos($path,"/tin-tuc") > -1){
+	$page= 'intro';
+}
+if(strpos($path,"/san-pham") > -1 ){
+	$page = 'product';
+}
 // Only output the container if there are elements to display.
 if ( $has_footer_menu || $has_social_menu || $has_sidebar_1 || $has_sidebar_2 ||  $has_sidebar_3 || $has_sidebar_4 ) {
 	?>
@@ -47,7 +59,14 @@ if ( $has_footer_menu || $has_social_menu || $has_sidebar_1 || $has_sidebar_2 ||
 							</div>
 						</div>
 						<div class="footer-widgets column-two grid-item">
-							<img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-10-at-16.39.27-2.png" />
+							<?php if($page == 'home'){
+								echo '<img class="info-home" src="/wp-content/uploads/2020/01/info-home-scaled.jpg" />';
+							}else if($page == 'product'){
+								echo '<img class="info-product" src="/wp-content/uploads/2020/01/info-product.jpg" />';
+							}else{
+								echo '<img class="info-intro" src="/wp-content/uploads/2020/01/info-intro.jpg" />';
+							}
+							?>
 						</div>
 					</div>
 				</div>
