@@ -641,7 +641,7 @@ function be_display_posts_shortcode( $atts ) {
 		$thumnail= get_the_post_thumbnail(null,'large');
 		$meta = '';
 		foreach ($metadata as $key=>$value) {
-			if($key[0]!= '_' && $key != 'price' && $key != 'content'){
+			if($key[0]!= '_' && $key != 'price' && $key != 'content' && $key != 'show_home'){
 				$meta .= "<p>".$key.": <span>".$value[0]."</span></p>";
 			}
 		}
@@ -679,11 +679,11 @@ function be_display_posts_shortcode( $atts ) {
 									<div class="button-action">
 										<div class="row">
 											<div class="col-sm-6">
-												<div class="button-call">
+												<a class="button-call" href="tel:18001504" style="display: block">
 													<img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.39.png" />
-													<p>0939 832 242</p>
+													<p>18001504</p>
 													<p class="mute">Tư vấn - Hỗ trợ đặt hàng</p>
-												</div>
+												</a>
 											</div>
 											<div class="shipping col-md-6" >
 											<img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.33.png" />

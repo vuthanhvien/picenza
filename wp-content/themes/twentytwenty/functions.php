@@ -792,3 +792,65 @@ function twentytwenty_get_elements_array() {
 	*/
 	return apply_filters( 'twentytwenty_get_elements_array', $elements );
 }
+
+
+
+function custom_meta_box_markup($object)
+{
+    wp_nonce_field(basename(__FILE__), "meta-box-nonce");
+
+    ?>
+        <div>
+            <?php
+                $checkbox_value = get_post_meta($object->ID, "show_home", true);
+                if($checkbox_value == '')
+                {
+                    ?>
+                        <input name="show_home" type="checkbox" value="true">
+                    <?php
+                }
+                else
+                {
+                    ?>  
+                        <input name="show_home" type="checkbox" value="true" checked>
+                    <?php
+                }
+            ?>
+            <label for="show_home">Cho phép hiện ở trang chủ</label>
+        </div>
+    <?php  
+}
+
+function add_custom_meta_box()
+{
+    add_meta_box("show_home", "Hiện ở trang chủ", "custom_meta_box_markup", "product", "side", "high", null);
+}
+
+add_action("add_meta_boxes", "add_custom_meta_box");
+
+function save_custom_meta_box($post_id, $post, $update)
+{
+    // if (!isset($_POST["show_home"]) || !wp_verify_nonce($_POST["meta-box-nonce"], basename(__FILE__)))
+    //     return $post_id;
+
+    if(!current_user_can("edit_post", $post_id))
+        return $post_id;
+
+    if(defined("DOING_AUTOSAVE") && DOING_AUTOSAVE)
+        return $post_id;
+
+    $slug = "product";
+    if($slug != $post->post_type)
+		return $post_id;
+		
+		
+	$value_data = "";
+	
+    if(isset($_POST["show_home"])) {
+		$value_data = $_POST["show_home"] == "true" ? "1" : "";
+	}
+    update_post_meta($post_id, "show_home", $value_data);
+}
+
+add_action("save_post", "save_custom_meta_box", 10, 3);
+ 
