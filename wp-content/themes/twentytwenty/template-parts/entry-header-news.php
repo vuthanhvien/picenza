@@ -13,9 +13,11 @@ if ( is_singular() ) {
 	$entry_header_classes .= ' header-footer-group';
 }
 
-$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
+$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'custom-size', true );
 
-$thumbnail = $thumbnail[0];
+$thumbnail = $thumbnail[0]  ? $thumbnail[0] : '/wp-content/uploads/2020/01/Banner-tin-tức-scaled.jpg';
+
+
 ?>
 
 

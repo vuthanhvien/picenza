@@ -1057,10 +1057,18 @@ input[type=submit] {
 }
 
 .news-page header.entry-header {
-    padding: 250px 0;
+    padding: 0;
     background-size: cover;
     margin: 0 20px;
     width: calc(100% - 40px);
+}
+.news-page header.entry-header .entry-header-inner.section-inner.medium {
+    padding: 250px 0;
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 100%!important;
+    margin: 0;
+
 }
 
 .news-page .entry-header .entry-title {
