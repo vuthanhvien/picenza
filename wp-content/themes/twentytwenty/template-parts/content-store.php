@@ -33,8 +33,9 @@
             array(
                 'order'         => 'desc',
                 'post_status'   => 'publish',
-                'post_type'     => 'store'
-                 
+                'post_type'     => 'store',
+                'orderby'       => 'default_date',
+                'posts_per_page'   => -1,
             )
 		);
         if ($query->have_posts()) {
@@ -43,15 +44,15 @@
             while ($query->have_posts()) { 
                 $query->the_post(); 
                 $postId = get_the_ID();
-                $code = get_post_meta($postId, 'address-code', true);
-                $code = explode("-",$code);
+                $code = Array();
+                $code[0] = get_post_meta($postId, 'address_code_city', true);
+                $code[1] = get_post_meta($postId, 'address_code_district', true);
                 if(!$addresses[$code[0]]){
                     $addresses[$code[0]] = [];
                 }
-                
-                array_push($addresses[$code[0]], $code[1]);
-                
-            }
+                $addresses[$code[0]] = array_merge($addresses[$code[0]], Array($code[1]));
+                $addresses[$code[0]] = array_unique($addresses[$code[0]]);
+        }
             echo '
                 <div class="form-store">
                 <div>
@@ -94,20 +95,27 @@
                 $query->the_post(); 
                 $postId = get_the_ID();
                 $address = get_post_meta($postId, 'address', true);
-                $location = get_post_meta($postId, 'location', true);
-                $code = get_post_meta($postId, 'address-code', true);
-
+                $phone = get_post_meta($postId, 'phone', true);
+                // $location = get_post_meta($postId, 'location', true);
+                $location = 'https://www.google.com/maps/search/'.$address;
+                $city = get_post_meta($postId, 'address_code_city', true);
+                $district = get_post_meta($postId, 'address_code_district', true);
+                $code = $city . $district;
                 $key = preg_replace('/\s+/', '', $code);
 			   ?>
 
 				<div data-key="<?php echo $key ?>" class="store-detail" id="news-<?php $postId; ?>">
-				<a href="<?php the_permalink() ?>"> 
+				<a> 
 					<?php the_post_thumbnail() ?>
 					</a>
 					<div class="store-content">
                         <div>
                             <?php the_title('<h3 class="entry-title">', '</h3>' ) ;?>
-                            <p> <?php echo $address; ?> <a target="_blank" href="<?php echo $location ?>"> Xem bản đồ</i></a></p>
+                            <p>SĐT: <strong><?php echo $phone; ?></strong></p>
+                            <p>
+                                <?php echo $address; ?>
+                                <a target="_blank" href="<?php echo $location ?>">Xem bản đồ </a>
+                            </p>
                         </div>
 					    
                     <div>

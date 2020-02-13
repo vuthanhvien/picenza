@@ -492,7 +492,7 @@ function be_display_posts_shortcode( $atts ) {
 		$excerpt = '';
 		$content = '';
 
-		$price = get_post_meta($post->ID, 'price', true);
+		$price = get_post_meta($post->ID, 'Giá', true);
 
 		if($post->post_type == 'post'){
 			$title = '<div class="content-inner"><h5>' . get_the_title() . '</h5></div> ';
@@ -633,7 +633,7 @@ function be_display_posts_shortcode( $atts ) {
 		$inner .= apply_filters( 'display_posts_shortcode_output', $output, $original_atts, $image, $title, $date, $excerpt, $inner_wrapper, $content, $class, $author, $category_display_text );
 		$postId = $post->ID;
 		$metadata = get_post_meta($postId, '');
-		$price = get_post_meta($postId, 'price', true);
+		$price = get_post_meta($postId, 'Giá', true);
 		$content = get_post_meta($postId, 'content', true);
 		// $code = get_post_meta($postId, 'code', true);
 		// $status = get_post_meta($postId, 'status', true);
@@ -641,7 +641,7 @@ function be_display_posts_shortcode( $atts ) {
 		$thumnail= get_the_post_thumbnail(null,'large');
 		$meta = '';
 		foreach ($metadata as $key=>$value) {
-			if($key[0]!= '_' && $key != 'price' && $key != 'content' && $key != 'show_home'){
+			if($key[0]!= '_' && $key != 'Giá' && $key != 'content' && $key != 'show_home'){
 				$meta .= "<p>".$key.": <span>".$value[0]."</span></p>";
 			}
 		}
@@ -669,7 +669,6 @@ function be_display_posts_shortcode( $atts ) {
 								</div>
 								<div class="info col-md-7">
 								<h2>'.$title.'</h2>'.$meta.'
-								<p class="product-content">'.$content.'</p>
 								<div class="product-footer">
 									<div class=" row">
 										<p class="col-md-6">'.$price.'</p>

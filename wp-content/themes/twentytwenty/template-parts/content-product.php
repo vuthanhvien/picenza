@@ -41,7 +41,7 @@
             array(
                 'paged'         => $paged, 
                 'order'         => 'desc',
-                'orderby'         => 'menu_order',
+                'orderby'         => 'default_date',
 				'post_status'   => 'publish',
 				'nopaging'		=> false,
                 'posts_per_page'=> 12,
@@ -61,7 +61,7 @@
 			   $query->the_post(); 
 			   $postId = get_the_ID();
 			   $metadata = get_post_meta($postId, '');
-			   $price = get_post_meta($postId, 'price', true);
+			   $price = get_post_meta($postId, 'Giá', true);
 			//    $code = get_post_meta($postId, 'code', true);
 			//    $status = get_post_meta($postId, 'status', true);
 			   $content = get_post_meta($postId, 'content', true);
@@ -70,7 +70,7 @@
 
 			   $meta = '';
 			   foreach ($metadata as $key=>$value) {
-				   if($key[0]!= '_' && $key != 'price' && $key != 'content' && $key != 'show_home'){
+				   if($key[0]!= '_' && $key != 'Giá' && $key != 'content' && $key != 'show_home'){
 					$meta .= "<p>".$key.": <span>".$value[0]."</span></p>";
 				   }
 			   }
@@ -112,7 +112,6 @@
 							 <?php the_title('<h2 class="entry-title">', '</h2>' ); ?>
 							<?php echo $meta ?>
 							
-							<?php if($content){ echo '<p class="product-content">'.$content.'</p>'; } ?>
 							 <div class="product-footer">
 								 <?php if($price){
 									  echo '<div class=" row">
