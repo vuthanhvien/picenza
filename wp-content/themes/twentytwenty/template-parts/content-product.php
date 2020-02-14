@@ -40,8 +40,8 @@
         $query = new WP_Query( 
             array(
                 'paged'         => $paged, 
-                'order'         => 'desc',
-                'orderby'         => 'default_date',
+                'order'         => 'asc',
+                // 'orderby'         => 'date',
 				'post_status'   => 'publish',
 				'nopaging'		=> false,
                 'posts_per_page'=> 12,

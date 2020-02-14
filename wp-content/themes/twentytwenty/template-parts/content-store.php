@@ -31,10 +31,10 @@
     <?php
         $query = new WP_Query( 
             array(
-                'order'         => 'desc',
+                'order'         => 'asc',
                 'post_status'   => 'publish',
                 'post_type'     => 'store',
-                'orderby'       => 'default_date',
+                // 'orderby'       => 'default_date',
                 'posts_per_page'   => -1,
             )
 		);
