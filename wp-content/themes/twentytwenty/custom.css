@@ -1,4 +1,4 @@
-* {
+*, p {
     font-family: 'Source Sans Pro', sans-serif;
     letter-spacing: 0.05em;
 }
@@ -643,6 +643,8 @@ input[type=submit] {
 
 #custom-about .about-1 h4 {
     padding-top: 0;
+    /* margin-bottom: 10px; */
+    margin-top: 0px;
 
 }
 
@@ -656,6 +658,9 @@ input[type=submit] {
 
 #custom-about .about-2 .about-content h4 {
     margin-left: 0;
+    /* margin-bottom: 10px; */
+    margin-top: 0px;
+    padding-top: 0;
 }
 
 #custom-about .about-2 .about-content p {
@@ -1174,7 +1179,7 @@ input[type=submit] {
 
 .form-store>div:nth-child(1),
 .form-store>div:nth-child(2) {
-    width: calc(50% - 115px);
+    width: calc(50% - 135px);
 }
 
 .form-store select {

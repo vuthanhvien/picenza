@@ -18,9 +18,9 @@
 	get_template_part( 'template-parts/entry-header' );
 	?>
     <div class="banner">
-        <h3>DANH SÁCH CỬA HÀNG PICENZA</h3>
+        <h3>DANH SÁCH NHÀ PHÂN PHỐI PICENZA</h3>
         <a class="button red-bg" href="https://www.google.com/maps/search/Picenza" target="_blank"> 
-                Định vị cửa hàng gần bạn
+                Định vị nhà phân phối gần bạn
         </a>
     </div>
     <style>
@@ -83,12 +83,12 @@
                 }
                 echo '</div>
                 <div>
-                    <button class="button">Tìm cửa hàng</button>
+                    <button class="button">Tìm nhà phân phối</button>
                 </div>
             </div>
             
 
-            <h2 class="title-section" id="total-store">Có '.$query->found_posts.' cửa hàng </h2>
+            <h2 class="title-section" id="total-store">Có '.$query->found_posts.' nhà phân phối </h2>
             <div class="store-list">';
 
                while ($query->have_posts()) { 

@@ -114,24 +114,22 @@
 							
 							 <div class="product-footer">
 								 <?php if($price){
-									  echo '<div class=" row">
-											<p class="col-md-6">'.$price.'</p>
-							 			</div>';
+									  echo '  <p>'.$price.'</p> ';
 								 }
 								 ?>
 							 <div class="button-action">
 								 <div class="row">
-									 <div class="col-sm-6">
+									 <div class="col-md-6 offset-md-6">
 								 		<a class="button-call" href="tel:18001504" style="display: block">
 											<img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.39.png" />
 											<p>18001504</p>
 											<p class="mute">Tư vấn - Hỗ trợ đặt hàng</p>
 								 		</a>
 									 </div>
-									 <div class="shipping col-md-6" >
+									 <!-- <div class="shipping col-md-6" >
 									 <img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.33.png" />
-									 <p>Giao hàng tận nơi <br> Miễn phí lắp đặt</p>
-								 </div>
+									 <p>Giao hàng tận nơi <br> Miễn phí lắp đặt</p> -->
+								 <!-- </div> -->
 									 <!-- <div class="col-sm-6">
 								 		<div class="button red-bg button-block">Đặt mua</div>
 								 	</div> -->

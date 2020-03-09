@@ -670,26 +670,20 @@ function be_display_posts_shortcode( $atts ) {
 								<div class="info col-md-7">
 								<h2>'.$title.'</h2>'.$meta.'
 								<div class="product-footer">
-									<div class=" row">
-										<p class="col-md-6">'.$price.'</p>
+										<p>'.$price.'</p>
 										
 									</div>
 
 									<div class="button-action">
 										<div class="row">
-											<div class="col-sm-6">
+											<div class="col-md-6 offset-md-6">
 												<a class="button-call" href="tel:18001504" style="display: block">
 													<img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.39.png" />
 													<p>18001504</p>
 													<p class="mute">Tư vấn - Hỗ trợ đặt hàng</p>
 												</a>
 											</div>
-											<div class="shipping col-md-6" >
-											<img src="/wp-content/uploads/2020/01/Screen-Shot-2020-01-13-at-15.36.33.png" />
-											<p>Giao hàng tận nơi <br> Miễn phí lắp đặt</p>
-										</div>
 										</div> 
-										</div>
 									</div>
 								</div>
 							 </div>
